@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kế hoạch Gyeongju & Busan · 19–25/10/2026</title>
+<style>
+  :root{
+    --cream:#fbf6ee;
+    --paper:#ffffff;
+    --ink:#2b2420;
+    --ink-soft:#6b5f54;
+    --terracotta:#c8672f;
+    --terracotta-soft:#f3e0d0;
+    --teal:#2f5d5a;
+    --teal-soft:#e1ece9;
+    --gold:#c99a2e;
+    --gold-soft:#f6ecd2;
+    --green:#3f7a4e;
+    --green-soft:#e2efe3;
+    --line:#e8ddd0;
+    --shadow: 0 6px 20px rgba(60,45,30,0.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.5;
+    padding-bottom:60px;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px;}
+
+  header.hero{
+    background:linear-gradient(150deg,#2f5d5a 0%,#274d4a 60%,#1f3f3d 100%);
+    color:#fdf9f1;
+    padding:38px 18px 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute;
+    right:-60px; top:-60px;
+    width:220px;height:220px;
+    border-radius:50%;
+    background:rgba(201,154,46,0.18);
+  }
+  header.hero::before{
+    content:"";
+    position:absolute;
+    left:-40px; bottom:-80px;
+    width:180px;height:180px;
+    border-radius:50%;
+    background:rgba(200,103,47,0.18);
+  }
+  .hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:1;}
+  .hero-eyebrow{
+    font-size:13px; letter-spacing:.08em; text-transform:uppercase;
+    color:#d9c9a0; font-weight:600; margin-bottom:8px;
+  }
+  h1.hero-title{
+    margin:0 0 10px; font-size:30px; font-weight:800; line-height:1.25;
+  }
+  .hero-sub{color:#cfe0dc; font-size:15px; max-width:520px;}
+  .hero-chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px;}
+  .chip{
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.25);
+    color:#fdf9f1;
+    padding:7px 13px; border-radius:999px; font-size:13px; font-weight:600;
+    display:flex; align-items:center; gap:6px;
+  }
+
+  .quickcards{
+    display:grid; grid-template-columns:1fr 1fr; gap:14px;
+    margin-top:-58px; position:relative; z-index:2;
+  }
+  @media(max-width:520px){ .quickcards{grid-template-columns:1fr;} }
+  .qcard{
+    background:var(--paper); border-radius:16px; box-shadow:var(--shadow);
+    padding:16px 16px 14px; border:1px solid var(--line);
+  }
+  .qcard .qc-label{font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); font-weight:700; margin-bottom:6px;}
+  .qcard .qc-main{font-size:16px; font-weight:700; margin-bottom:2px;}
+  .qcard .qc-sub{font-size:13px; color:var(--ink-soft);}
+
+  main{margin-top:34px;}
+  section{margin-bottom:34px;}
+  h2.section-title{
+    font-size:20px; font-weight:800; margin:0 0 14px;
+    display:flex; align-items:center; gap:8px;
+  }
+  h2.section-title .dot{width:8px;height:8px;border-radius:50%;background:var(--terracotta);display:inline-block;}
+  .section-note{font-size:13px; color:var(--ink-soft); margin:-8px 0 14px;}
+
+  .alert{
+    border-radius:14px; padding:16px 16px; display:flex; gap:12px; align-items:flex-start;
+    box-shadow:var(--shadow); border:1px solid;
+  }
+  .alert.good{background:var(--green-soft); border-color:#bfe0c5;}
+  .alert.good b{color:#265a34;}
+  .alert.good p{color:#2c5c3a;}
+  .alert.warn{background:var(--gold-soft); border-color:#e8cf8e;}
+  .alert.warn b{color:#8a5f0c;}
+  .alert.warn p{color:#5c4a1e;}
+  .alert.bad{background:#fbe3e0; border-color:#f0b8b0;}
+  .alert.bad b{color:#a13f2e;}
+  .alert.bad p{color:#8a3626;}
+  .alert .ic{font-size:22px; line-height:1;}
+  .alert p{margin:4px 0 0; font-size:14px;}
+
+  .hotelgrid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media(max-width:560px){ .hotelgrid{grid-template-columns:1fr;} }
+  .hotel-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px;
+    padding:18px; box-shadow:var(--shadow);
+  }
+  .hotel-card .tag{
+    display:inline-block; font-size:11px; font-weight:700; padding:3px 9px;
+    border-radius:999px; margin-bottom:10px; text-transform:uppercase; letter-spacing:.04em;
+  }
+  .tag.confirmed{background:var(--teal-soft); color:var(--teal);}
+  .tag.pending{background:var(--terracotta-soft); color:var(--terracotta);}
+  .hotel-card h3{margin:0 0 6px; font-size:17px;}
+  .hotel-card .addr{font-size:13px; color:var(--ink-soft); margin-bottom:12px;}
+  .hotel-meta{display:flex; flex-direction:column; gap:6px; font-size:13.5px;}
+  .hotel-meta div{display:flex; justify-content:space-between; gap:8px; border-top:1px dashed var(--line); padding-top:6px;}
+  .hotel-meta div span:first-child{color:var(--ink-soft);}
+  .hotel-meta div span:last-child{font-weight:600; text-align:right;}
+  .hotel-flag{margin-top:12px; background:var(--gold-soft); border:1px solid #e8cf8e; border-radius:10px; padding:9px 11px; font-size:12.5px; color:#5c4a1e;}
+
+  .day{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px;
+    margin-bottom:12px; box-shadow:var(--shadow); overflow:hidden;
+  }
+  .day-head{
+    display:flex; align-items:center; gap:14px; padding:16px 18px; cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .day-badge{
+    width:52px; flex:0 0 52px; height:52px; border-radius:14px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-weight:800; color:#fff;
+  }
+  .day-badge .num{font-size:19px; line-height:1;}
+  .day-badge .mon{font-size:10px; text-transform:uppercase; opacity:.85;}
+  .day-head .titles{flex:1; min-width:0;}
+  .day-head .titles .dname{font-size:11px; font-weight:700; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.04em;}
+  .day-head .titles h3{margin:2px 0 0; font-size:16px; line-height:1.3;}
+  .day-flags{display:flex; gap:6px; flex-wrap:wrap; margin-top:6px;}
+  .flag{font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:999px;}
+  .flag.conf{background:var(--teal-soft); color:var(--teal);}
+  .flag.tour{background:var(--gold-soft); color:#8a5f0c;}
+  .flag.travel{background:var(--terracotta-soft); color:var(--terracotta);}
+  .flag.free{background:var(--green-soft); color:#265a34;}
+  .chev{transition:transform .2s ease; color:var(--ink-soft); flex:0 0 auto;}
+  .day.open .chev{transform:rotate(180deg);}
+
+  .day-body{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .day-body-inner{padding:0 18px 18px 84px; position:relative;}
+  .day-body-inner::before{
+    content:""; position:absolute; left:44px; top:0; bottom:18px; width:2px; background:var(--line);
+  }
+  .item{position:relative; padding:10px 0; padding-left:22px;}
+  .item::before{
+    content:""; position:absolute; left:-6px; top:16px; width:10px; height:10px;
+    border-radius:50%; background:var(--terracotta); border:2px solid var(--paper); box-shadow:0 0 0 2px var(--line);
+  }
+  .item.mandatory::before{background:var(--teal);}
+  .item.pause::before{background:var(--gold);}
+  .item .time{font-size:12.5px; font-weight:700; color:var(--ink-soft);}
+  .item .desc{font-size:14.5px; margin-top:2px;}
+  .item.mandatory .desc b{color:var(--teal);}
+  .item.pause .desc b{color:#8a5f0c;}
+  .item .alt{margin-top:6px; font-size:12.5px; color:var(--terracotta); background:var(--terracotta-soft); display:inline-block; padding:3px 9px; border-radius:8px;}
+  .item .crowd{margin-top:6px; font-size:12.5px; color:#8a5f0c; background:var(--gold-soft); display:inline-block; padding:3px 9px; border-radius:8px;}
+  .note-inline{
+    margin-top:10px; margin-left:22px; background:var(--cream); border:1px dashed var(--line);
+    border-radius:10px; padding:10px 12px; font-size:13px; color:var(--ink-soft);
+  }
+  .warn-inline{
+    margin-top:10px; margin-left:22px; background:var(--gold-soft); border:1px solid #e8cf8e;
+    border-radius:10px; padding:10px 12px; font-size:13px; color:#5c4a1e;
+  }
+  .bad-inline{
+    margin-top:10px; margin-left:22px; background:#fbe3e0; border:1px solid #f0b8b0;
+    border-radius:10px; padding:10px 12px; font-size:13px; color:#8a3626;
+  }
+  .good-inline{
+    margin-top:10px; margin-left:22px; background:var(--green-soft); border:1px solid #bfe0c5;
+    border-radius:10px; padding:10px 12px; font-size:13px; color:#2c5c3a;
+  }
+
+  .infogrid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media(max-width:560px){ .infogrid{grid-template-columns:1fr;} }
+  .info-card{background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:16px; box-shadow:var(--shadow);}
+  .info-card .ic-top{font-size:22px; margin-bottom:6px;}
+  .info-card h4{margin:0 0 6px; font-size:14.5px;}
+  .info-card p{margin:0; font-size:13px; color:var(--ink-soft);}
+
+  .todo{background:var(--paper); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:6px 18px;}
+  .todo label{display:flex; align-items:flex-start; gap:10px; padding:12px 0; border-bottom:1px solid var(--line); font-size:14px; cursor:pointer;}
+  .todo label:last-child{border-bottom:none;}
+  .todo input{margin-top:3px; width:16px; height:16px; accent-color:var(--terracotta); flex:0 0 auto;}
+  .todo span.done{text-decoration:line-through; color:var(--ink-soft);}
+
+  table.ticket{width:100%; border-collapse:collapse; background:var(--paper); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); font-size:13px;}
+  table.ticket th{background:var(--teal); color:#fff; text-align:left; padding:10px 12px; font-weight:700;}
+  table.ticket td{padding:10px 12px; border-top:1px solid var(--line);}
+  table.ticket tr:nth-child(even) td{background:var(--cream);}
+
+  footer{text-align:center; font-size:12px; color:var(--ink-soft); margin-top:40px;}
+
+  .legend{display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px; color:var(--ink-soft); margin-bottom:16px;}
+  .legend span{display:inline-flex; align-items:center; gap:6px;}
+  .legend .sw{width:10px;height:10px;border-radius:50%;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Chuyến đi cùng nhau · APHRS 2026</div>
+    <h1 class="hero-title">Gyeongju &amp; Busan</h1>
+    <p class="hero-sub">Lịch trình hợp nhất 19–25/10/2026 — kết hợp phần logistics/hội nghị với triết lý "Có mặt thật" và các gợi ý quán ăn, trang phục của chị. Bấm vào từng ngày để xem chi tiết nhé.</p>
+    <div class="hero-chips">
+      <div class="chip">✈️ HAN → PUS: 19/10, 01:05</div>
+      <div class="chip">✈️ PUS → HAN: 25/10, 08:10</div>
+      <div class="chip">📍 7 ngày 6 đêm</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="quickcards">
+    <div class="qcard">
+      <div class="qc-label">Gyeongju</div>
+      <div class="qc-main">Sugar Hotel</div>
+      <div class="qc-sub">19–21/10 · 2 đêm · đã đặt ✅</div>
+    </div>
+    <div class="qcard">
+      <div class="qc-label">Busan</div>
+      <div class="qc-main">Đang chọn</div>
+      <div class="qc-sub">21–25/10 · khu Haeundae</div>
+    </div>
+  </div>
+
+  <main>
+
+    <section>
+      <div class="alert good">
+        <div class="ic">✅</div>
+        <div>
+          <b>Đã chốt 3 điểm còn vướng ở bản trước:</b>
+          <p>(1) Khách sạn Gyeongju đúng là <b>Sugar Hotel</b> theo booking — đã cập nhật lại khoảng cách đi bộ tới các điểm tham quan cho sát thực tế. (2) <b>Sáng 21/10 không bắt buộc</b> dự hội nghị — sáng đó được dùng để di chuyển thong thả. (3) Đã kiểm tra và xác nhận có <b>tuyến xe khách chạy thẳng Gyeongju → Haeundae</b> (~1h17, 10.500 KRW/người, ~15 chuyến/ngày từ 07:10–21:10) — đơn giản hơn hẳn phương án vòng qua sân bay Gimhae trước đó, nên lịch trình dưới đây đã đổi sang tuyến này.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="alert bad">
+        <div class="ic">🚨</div>
+        <div>
+          <b>Rà soát 16/9/2026 — 1 quán đã đóng cửa, 2 điểm không xác minh được:</b>
+          <p><b>Hwangnam Gyeongju Sikdang</b> (tối 19/10, ăn Hanwoo) — tra cứu cho thấy quán này <b>đã đóng cửa (폐점)</b>, cần đổi chỗ khác, không chỉ là "phương án dự phòng". <b>Doseolji</b> (trưa 19/10) và <b>Bitdani/빛다니</b> (trà chiều 20/10) — không tìm thấy dấu vết quán nào tên như vậy ở Gyeongju trên các nguồn đặt bàn/review lớn (Diningcode, Siksin, Naver blog); nhiều khả năng là tên bị nhầm/sinh ra khi bản gốc soạn bằng Gemini. Đã thay bằng phương án đã xác minh là có thật bên dưới — nhưng anh chị nên bấm kiểm tra lại trên Naver Map/Kakao Map 1 lần trước khi đi, vì quán ăn nhỏ ở Hàn đổi tên/đóng cửa khá nhanh.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="alert warn">
+        <div class="ic">⚠️</div>
+        <div>
+          <b>Mùa này Cheomseongdae/Daereungwon đông hơn bản gốc dự tính:</b>
+          <p>19–20/10 rơi đúng mùa nở của <b>cỏ hồng (핑크뮬리)</b> quanh Cheomseongdae (nở rộ giữa tháng 10 – đầu tháng 11) — khớp với ảnh đẹp nhưng cũng là lúc đông khách chụp ảnh nhất. Ngoài ra, khu Cheomseongdae/Daereungwon vừa được đầu tư <b>chiếu sáng nghệ thuật ban đêm</b> (chiếu projection lên Cheomseongdae, "con đường Ngân Hà" ở Daereungwon) trước thềm APEC 2025 — nên buổi tối giờ đông hơn hẳn so với trước. Điểm tốt: 19–20/10 vẫn <b>trước đỉnh lá đỏ</b> (dự báo đỉnh lá đỏ Gyeongju rơi vào 3–18/11), nên riêng phần ngắm lá phong ở Bulguksa sẽ đỡ đông hơn nhiều so với nếu đi đầu tháng 11. Và cả hai ngày đều là ngày thường (thứ 2, thứ 3) — đỡ hơn cuối tuần đáng kể.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="dot"></span>Khách sạn</h2>
+      <div class="hotelgrid">
+        <div class="hotel-card">
+          <span class="tag confirmed">Đã đặt</span>
+          <h3>🏨 Sugar Hotel — Gyeongju</h3>
+          <div class="addr">34-1, Taejong-ro 685beon-gil, Gyeongju</div>
+          <div class="hotel-meta">
+            <div><span>Nhận / trả phòng</span><span>19/10 → 21/10</span></div>
+            <div><span>Số đêm</span><span>2 đêm</span></div>
+            <div><span>Loại phòng</span><span>Đôi Economy, 1 giường đôi</span></div>
+            <div><span>Bữa sáng</span><span>Đã bao gồm</span></div>
+            <div><span>Giờ nhận / trả phòng</span><span>từ 15:00 / trước 12:00</span></div>
+            <div><span>Mã đặt phòng</span><span>UQV825028</span></div>
+            <div><span>Tới bến xe khách</span><span>~200m (5 phút đi bộ)</span></div>
+            <div><span>Tới Cheomseongdae/Daereungwon</span><span>~1,4–1,6km (15–20 phút)</span></div>
+          </div>
+          <div class="hotel-flag">📍 Xa khu di tích hơn một chút so với dự tính ban đầu của chị (Hwangnamguan) — có thể đi bộ hoặc bắt taxi ngắn ~3.000–4.000 KRW cho đỡ mỏi chân.</div>
+        </div>
+        <div class="hotel-card">
+          <span class="tag pending">Chưa đặt</span>
+          <h3>🏨 Khách sạn Busan</h3>
+          <div class="addr">Đề xuất: khu Haeundae / Centum City</div>
+          <div class="hotel-meta">
+            <div><span>Nhận phòng</span><span>trưa 21/10</span></div>
+            <div><span>Trả phòng</span><span>sáng 25/10</span></div>
+            <div><span>Ưu tiên</span><span>gần BEXCO &amp; biển</span></div>
+            <div><span>Trạng thái</span><span>cần chốt sớm</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="dot"></span>Di chuyển Gyeongju ↔ Busan</h2>
+      <div class="infogrid">
+        <div class="info-card">
+          <div class="ic-top">🚌</div>
+          <h4>Tuyến trực tiếp (khuyên dùng, ngày 21/10)</h4>
+          <p>Gyeongju Intercity Bus Terminal → Busan Haeundae. ~1h17, 10.500 KRW/người, ~15 chuyến/ngày (07:10–21:10). Xuống ngay khu Haeundae, taxi ~5 phút tới BEXCO. Nên mua vé trước tại quầy chiều 20/10.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">✈️</div>
+          <h4>Tuyến qua sân bay Gimhae (ngày 19/10 tới)</h4>
+          <p>Gimhae Airport → Gyeongju Terminal, ~70 phút, 9.500 KRW/người, ~15 chuyến/ngày. Dùng cho chặng đến vì hạ cánh ngay tại Gimhae.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="dot"></span>Lịch trình theo ngày</h2>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--teal)"></i>Mốc hội nghị bắt buộc</span>
+        <span><i class="sw" style="background:var(--gold)"></i>Hard Pause — nghỉ ngơi có chủ đích</span>
+        <span><i class="sw" style="background:var(--terracotta)"></i>Du lịch / di chuyển</span>
+      </div>
+      <div id="days"></div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="dot"></span>Trang phục theo vùng</h2>
+      <div class="infogrid">
+        <div class="info-card">
+          <div class="ic-top">🍂</div>
+          <h4>Gyeongju — tông thu / Hanok</h4>
+          <p>Áo len mỏng kem/be/nâu camel, blazer dạ hoặc măng tô nhẹ, quần suông/chân váy midi dày dặn — hợp nền lá phong đỏ, bạch quả vàng, tường gạch cổ.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">🌊</div>
+          <h4>Busan — biển &amp; làng dốc</h4>
+          <p>Tông tương phản: trắng, xanh navy, denim dày hoặc da mềm. Vùng Gijang gió rất mạnh — cần áo khoác cản gió, khăn choàng dày, giày đế bám tốt.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">👟</div>
+          <h4>Giày</h4>
+          <p>Sneaker êm hoặc giày bệt da mềm — đi bộ khoảng 5–7km/ngày. Ngày Gamcheon (23/10) cần đế bám tốt vì dốc cao.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">🎗️</div>
+          <h4>UN Memorial Cemetery (24/10)</h4>
+          <p>Cần trang phục lịch sự — không quần đùi ngắn, không áo sát nách/không tay.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="dot"></span>Chuẩn bị trước chuyến đi</h2>
+      <div class="infogrid">
+        <div class="info-card">
+          <div class="ic-top">📶</div>
+          <h4>eSIM / SIM Hàn Quốc</h4>
+          <p>Mua eSIM trước chuyến đi (Klook/Airalo/Gohub), hoặc SIM vật lý tại quầy GS25 sân bay Gimhae.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">🗺️</div>
+          <h4>Bản đồ</h4>
+          <p>Google Maps hạn chế ở Hàn Quốc — dùng Naver Map hoặc Kakao Map. Thêm Papago để dịch.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">💳</div>
+          <h4>Thẻ T-money/WOWPASS</h4>
+          <p>Mua 2 thẻ tại GS25/CU sân bay Gimhae, nạp sẵn ~30.000 KRW/thẻ. Xe khách liên tỉnh không dùng được T-money.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">🚕</div>
+          <h4>Gọi taxi</h4>
+          <p>Kakao T là lựa chọn chính — chọn "Pay to Driver" để tránh lỗi thẻ quốc tế.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">🌤️</div>
+          <h4>Thời tiết</h4>
+          <p>9–20°C. Sáng sớm/đêm lạnh se buốt kèm gió biển, ban ngày nắng dịu.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">💵</div>
+          <h4>Tiền mặt</h4>
+          <p>Đổi sẵn ~100.000–150.000 KRW — một số máy vé/taxi cũ không nhận thẻ quốc tế.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="dot"></span>Cẩm nang mua sắm</h2>
+      <div class="infogrid">
+        <div class="info-card">
+          <div class="ic-top">🎁</div>
+          <h4>Quà tặng đặc trưng</h4>
+          <p>Bánh đậu đỏ Hwangnam-ppang (Gyeongju, từ 1939); chả cá Samjin Amook (ga Busan/sân bay); rong biển muối mè Gijang.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">💄</div>
+          <h4>Dược mỹ phẩm</h4>
+          <p>Olive Young Centum City/Nampo — Torriden, Round Lab, d'Alba, Aestura, thường có set 1+1.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">🌿</div>
+          <h4>Hồng sâm</h4>
+          <p>Mua tại quầy miễn thuế sân bay Gimhae (KGC Cheong Kwan Jang) — chắc nguồn gốc, miễn thuế trực tiếp.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">🏺</div>
+          <h4>Đồ thủ công</h4>
+          <p>Gốm men tro, đồ gỗ nhỏ (thìa, khay trà) tại các xưởng thủ công ở Gyeongju.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="dot"></span>Danh mục vé/thẻ cần chuẩn bị</h2>
+      <table class="ticket">
+        <tr><th>Hạng mục</th><th>Mua khi nào</th><th>Ở đâu</th></tr>
+        <tr><td>eSIM / SIM 4G</td><td>Trước chuyến đi</td><td>Klook / Airalo / Gohub</td></tr>
+        <tr><td>Vé xe Gimhae → Gyeongju</td><td>Tại chỗ khi hạ cánh</td><td>Quầy/máy sảnh đến Gimhae</td></tr>
+        <tr><td>Vé xe Gyeongju → Haeundae</td><td>Chiều 20/10</td><td>Quầy vé Bến xe Gyeongju</td></tr>
+        <tr><td>Thẻ T-money/WOWPASS (2 thẻ)</td><td>Tại sân bay Gimhae</td><td>GS25/CU sảnh đến</td></tr>
+        <tr><td>Vé Cheonmachong, Hồ Wolji</td><td>Tại cổng</td><td>Máy bán vé tự động</td></tr>
+        <tr><td>Vé Haeundae Blueline Park</td><td>Trước vài ngày</td><td>Website chính thức (online)</td></tr>
+        <tr><td>Khách sạn Busan</td><td>Cần chốt sớm</td><td>—</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2 class="section-title"><span class="dot"></span>Việc còn cần chốt</h2>
+      <div class="todo" id="todo"></div>
+    </section>
+
+  </main>
+
+  <footer>Lịch trình hợp nhất từ bản logistics + bản chị Yến soạn (Gemini) — đã rà soát và cập nhật quán ăn/mức độ đông đúc ngày 16/9/2026 — có thể còn thay đổi khi chốt khách sạn Busan &amp; giờ xe khách chính xác gần ngày đi.</footer>
+</div>
+
+<script>
+const COLORS = {
+  travel: "#c8672f",
+  conf: "#2f5d5a",
+  arrive: "#c99a2e",
+  free: "#3f7a4e"
+};
+
+const days = [
+  {
+    date:"19/10", dow:"Thứ 2", mon:"Th10", num:"19",
+    color: COLORS.arrive,
+    title:"Hạ cánh & buổi tối đầu ở Gyeongju",
+    flags:["✈️ Bay đêm 18/10"],
+    items:[
+      {t:"01:05 (18/10)", d:"Khởi hành VJ982 từ Hà Nội."},
+      {t:"07:10", d:"Hạ cánh Gimhae. Nhập cảnh, lấy hành lý, mua T-money tại GS25 sảnh đến."},
+      {t:"~08:00–08:50", d:"Xe khách liên tỉnh Gimhae → Gyeongju (~70 phút, 9.500 KRW/người)."},
+      {t:"~09:00–10:00", d:"Tới bến xe Gyeongju, đi bộ ~5 phút (200m) tới <b>Sugar Hotel</b>, gửi hành lý."},
+      {t:"Trưa", d:"Ăn tại <b>Dosolmaeul (도솔마을)</b> — quán hanjeongsik (cơm phần kiểu Hàn) trong khu Hwangnam-dong, gần Hwangridan-gil.", alt:"⚠️ Đã đổi từ \"Doseolji\" — không tìm thấy quán này. Dosolmaeul là quán thật, có tiếng, đông vào giờ trưa cao điểm.", crowd:"Dự phòng: nếu đông/hết bàn, khu Hwangnam-dong có hàng chục quán hanjeongsik/cơm phần khác trong bán kính 5 phút đi bộ — mở Naver Map tìm quán gần nhất còn bàn trống."},
+      {t:"Đầu chiều", d:"<b>Hard Pause</b> — nếu được nhận phòng sớm thì nghỉ trong phòng, không thì tìm quán cà phê yên tĩnh nghỉ chân ~1–1,5 tiếng.", cls:"pause"},
+      {t:"15:00", d:"Nhận phòng chính thức tại Sugar Hotel."},
+      {t:"15:45–17:15", d:"Gò lăng <b>Daereungwon</b> &amp; lăng Cheonmachong, ghé đồng cỏ hồng Pink Muhly cạnh Cheomseongdae (đi bộ ~15–20 phút từ khách sạn, hoặc taxi ~4.000 KRW).", crowd:"⚠️ Đúng mùa cỏ hồng nở rộ (giữa 10 – đầu 11) + giờ vàng chụp ảnh (~16h30–17h) — khu này rất đông. Dự phòng: nếu Cheomseongdae quá đông, cánh đồng cỏ hồng ở Công viên Gyeongju World Culture Expo Park (khu Bomun, rộng hơn nhiều, ít khách hơn) là lựa chọn thay thế — nhưng cách xa hơn, cần taxi."},
+      {t:"17:30–19:00", d:"Dạ cảnh <b>Donggung Palace &amp; Hồ Wolji (Anapji)</b> lúc lên đèn.", crowd:"⚠️ Đây là điểm chụp ảnh đêm nổi tiếng bậc nhất Hàn Quốc, gần như luôn đông — góc \"phản chiếu\" kinh điển ở góc Tây Bắc hồ càng đông nghẹt lúc chập tối. Nên tới sát giờ mở đèn (thường ngay khi trời sập tối) hoặc đợi tới sau 19h30 khi đoàn khách tour giảm bớt để đỡ chen chúc; ảnh vẫn đẹp ở các góc hồ phía Đông ít người biết hơn."},
+      {t:"19:30–21:00", d:"Tối tại <b>Hwangnam-ppang Grill (황남 그릴, gợi ý)</b> hoặc bất kỳ quán thịt bò Hanwoo còn mở ở Hwangnam-dong — set thịt bò Hanwoo nướng than hoa.", alt:"🚨 Quán gốc \"Hwangnam Gyeongju Sikdang\" đã đóng cửa (폐점) — không nên tới. Phương án tốt hơn nếu muốn chắc chắn có bàn: đặt trước quán <b>Gyeongju Cheonnyeon Hanwoo (경주천년한우) chi nhánh Bomun</b> — chất lượng tốt, nhưng cách Hwangridan-gil ~15–20 phút taxi. Dự phòng gần khách sạn hơn: chọn 1 trong các quán nướng/Hanwoo đang được đánh giá tốt trên Naver Map ngay tại Hwangnam-dong tối hôm đó."}
+    ],
+    note:"Khoảng cách đi bộ tới Cheomseongdae/Daereungwon xa hơn dự tính ban đầu (Sugar Hotel ở gần bến xe hơn là giữa phố cổ) — cân nhắc taxi ngắn nếu đã mệt."
+  },
+  {
+    date:"20/10", dow:"Thứ 3", mon:"Th10", num:"20",
+    color: COLORS.travel,
+    title:"Bulguksa, làng cổ Gyochon, cầu Woljeonggyo",
+    flags:["🐢 Ngày trọn vẹn"],
+    items:[
+      {t:"08:00–09:00", d:"Nếu chưa ngắm hôm qua: ra lại đồng cỏ hồng/Cheomseongdae lúc sáng sớm vắng người."},
+      {t:"09:00–10:00", d:"Bus số 10/11 (T-money, ~1.500 KRW) ra chùa <b>Bulguksa</b>.", crowd:"Bulguksa rất rộng nên hiếm khi \"quá tải\", nhưng bãi đỗ/xe shuttle có thể xếp hàng vào cuối tuần. May là 20/10 là thứ 3 — nên đi trước 10h vẫn khá thoáng."},
+      {t:"10:00–12:15", d:"Tham quan Bulguksa (UNESCO) — Tháp Đa Bảo, cầu Thanh Vân-Bạch Vân."},
+      {t:"12:15–13:30", d:"Trưa chân núi Tohamsan — cơm niêu hạt sen hoặc canh đậu hũ non."},
+      {t:"14:00–15:30", d:"Làng cổ <b>Gyochon</b> &amp; nhà cổ họ Choe; kimbap tại <b>Gyori Gimbap (교리김밥)</b>.", crowd:"Quán có thật và khá nổi tiếng — chi nhánh gần Hwangridan-gil hay đông, có lúc phải chờ. Vì là quán ăn nhanh nên rủi ro thấp: có thể mua mang đi (포장) để khỏi chờ bàn.", alt:"Dự phòng: chi nhánh Bonghwangdae (봉황대점) gần làng cổ Gyochon hơn chi nhánh chính; nếu cả hai đông, khu này có nhiều quán kimbap/mì khác lân cận."},
+      {t:"15:30–16:45", d:"<b>Hard Pause</b> — quán trà mộc gần ngõ Poseok-ro (gợi ý: Cafe Poseokjeong hoặc một quán trà truyền thống khác trong khu này). Cất điện thoại ~45 phút.", cls:"pause", alt:"⚠️ Đã bỏ tên \"Bitdani (빛다니)\" — không xác minh được quán này có tồn tại ở Gyeongju. Nên chọn tại chỗ 1 quán trà/cà phê hanok yên tĩnh quanh khu Poseok-ro/Hwangridan-gil qua Naver Map khi tới nơi."},
+      {t:"17:00–18:15", d:"Hoàng hôn ở <b>cầu gỗ Woljeonggyo</b> ven suối Namcheon."},
+      {t:"Trên đường về", d:"Ghé Bến xe Gyeongju (gần khách sạn) <b>mua trước vé xe khách trực tiếp đi Haeundae</b> cho sáng mai — nên chọn chuyến ~09:30–10:00."},
+      {t:"18:30–20:00", d:"Tối tại <b>Sukyoung Sikdang / Sugyeongsa (수경사)</b> — cơm lá sen kiểu hanok, mua bánh Hwangnam-ppang làm quà.", crowd:"Quán có thật, chất lượng tốt (4.4/5) nhưng hay chờ ~20 phút, đặc biệt buổi tối. Nên tới sát giờ mở cửa tối hoặc trước 19h để giảm chờ.", alt:"Dự phòng nếu hết bàn: quán 하연지 (Hayeonji) — cũng phục vụ cơm lá sen/hanjeongsik theo phong cách tương tự, gần khu vực."}
+    ],
+    warn:"Tùy chọn: nếu muốn thêm Seokguram Grotto (UNESCO, cách Bulguksa ~15–20 phút xe), cần thêm ~1 tiếng cho lịch sáng nay — cân nhắc theo sức."
+  },
+  {
+    date:"21/10", dow:"Thứ 4", mon:"Th10", num:"21",
+    color: COLORS.conf,
+    title:"Sáng thong thả về Busan · Chiều: hội nghị",
+    flags:["✅ Sáng KHÔNG bắt buộc","🚌 Xe khách thẳng","🏛️ Hội nghị bắt buộc (chiều)"],
+    items:[
+      {t:"Sáng", d:"Ăn sáng tại khách sạn, thong thả — <b>sáng nay không bắt buộc dự hội nghị.</b>", cls:"mandatory"},
+      {t:"Trước 12:00", d:"Trả phòng Sugar Hotel, đi bộ ~5 phút ra bến xe."},
+      {t:"~09:30–10:00", d:"Lên xe khách liên tỉnh trực tiếp <b>Gyeongju → Busan Haeundae</b> (~1h17, 10.500 KRW/người)."},
+      {t:"~10:45–11:15", d:"Tới Haeundae. Taxi ngắn (~5 phút) tới khách sạn/BEXCO nếu cần."},
+      {t:"Trưa", d:"Nhận phòng khách sạn Busan, ăn Gukbap (súp thịt heo) khu chợ Haeundae."},
+      {t:"Chiều", d:"<b>Có mặt tại BEXCO — phiên hội nghị bắt buộc.</b>", cls:"mandatory"},
+      {t:"Tối", d:"Dạo biển <b>Gwangalli</b>, ngắm cầu Gwangan lên đèn, ăn tối hải sản."}
+    ],
+    good:"Đã xác nhận: sáng nay không bắt buộc dự hội nghị, và tuyến xe khách thẳng Gyeongju→Haeundae là có thật — lịch nhẹ nhàng hơn nhiều so với phương án cũ."
+  },
+  {
+    date:"22/10", dow:"Thứ 5", mon:"Th10", num:"22",
+    color: COLORS.conf,
+    title:"Bờ Đông hoang sơ + báo cáo poster + Tour 1",
+    flags:["🏛️ Hội nghị bắt buộc","🎟️ Tour đã đặt"],
+    items:[
+      {t:"Sáng", d:"Chị tự do: <b>Haeundae Blueline Park</b> (tàu ven biển Mipo → Cheongsapo) — nên đặt vé online trước. Anh chuẩn bị/rà lại poster."},
+      {t:"Trưa", d:"Sò điệp nướng hoặc mì hải sản tại bến Cheongsapo."},
+      {t:"13:20–13:50", d:"<b>Báo cáo poster tại BEXCO.</b>", cls:"mandatory"},
+      {t:"14:00–18:00", d:"<b>Tour 1</b> — Haedong Yonggungsa Temple &amp; Jukseong Church."},
+      {t:"Tối", d:"Cua tuyết hấp tại chợ cua Gijang, nghỉ sớm — mai còn phiên sáng bắt buộc."}
+    ]
+  },
+  {
+    date:"23/10", dow:"Thứ 6", mon:"Th10", num:"23",
+    color: COLORS.conf,
+    title:"Làng nghệ thuật & chợ hải sản + phiên sáng",
+    flags:["🏛️ Hội nghị bắt buộc","🎟️ Tour đã đặt"],
+    items:[
+      {t:"08:00–08:20", d:"<b>Có mặt tại BEXCO.</b>", cls:"mandatory"},
+      {t:"08:20–13:30", d:"Chị tự do: con đường sách cổ <b>Bosudong</b>. Trưa ăn vặt chợ Bupyeong Kkangtong."},
+      {t:"14:00–18:00", d:"<b>Tour 2</b> — Gamcheon Culture Village &amp; Jagalchi Market."},
+      {t:"Tối", d:"Sashimi mực sống hoặc lẩu hải sản tại Jagalchi/Nampo-dong."}
+    ]
+  },
+  {
+    date:"24/10", dow:"Thứ 7", mon:"Th10", num:"24",
+    color: COLORS.travel,
+    title:"Ký ức hòa bình & Oryukdo Skywalk",
+    flags:["🎟️ Tour đã đặt"],
+    items:[
+      {t:"Sáng", d:"Chị tự do: <b>Hard Pause</b> tại Spa Land Centum City (~20.000 KRW, ~4 tiếng), kết hợp mua sắm Shinsegae/Olive Young.", cls:"pause"},
+      {t:"14:00–18:00", d:"<b>Tour 3</b> — UN Memorial Cemetery &amp; Oryukdo Skywalk (trang phục lịch sự khi viếng nghĩa trang)."},
+      {t:"Tối", d:"Dạo biển Haeundae, tiệc chia tay — Samgyeopsal/Chimaek. Đóng gói hành lý."}
+    ]
+  },
+  {
+    date:"25/10", dow:"Chủ nhật", mon:"Th10", num:"25",
+    color: COLORS.arrive,
+    title:"Về nước",
+    flags:["✈️ Bay về"],
+    items:[
+      {t:"~05:00–05:15", d:"Check-out, rời khách sạn bằng taxi Kakao T."},
+      {t:"~05:30–05:45", d:"Tới sân bay Gimhae (taxi ~35–45 phút, ~25.000–30.000 KRW)."},
+      {t:"06:00–07:30", d:"Check-in, gửi hành lý, hoàn thuế (Tax Refund kiosk), qua an ninh."},
+      {t:"08:10", d:"Khởi hành VJ981 → Hà Nội."},
+      {t:"11:00", d:"Hạ cánh Hà Nội."}
+    ],
+    note:"Giờ ra sân bay là mức trung hòa giữa hai bản (05:10 vs 06:00) — ưu tiên an toàn vì còn phải hoàn thuế và làm thủ tục quốc tế."
+  }
+];
+
+const todos = [
+  "Chọn & đặt khách sạn Busan (khu Haeundae/Centum City)",
+  "Quyết định có ghé thêm Seokguram Grotto ngày 20/10 hay bỏ qua",
+  "Xác nhận lại giờ chạy chính xác xe khách Gyeongju → Haeundae gần ngày đi",
+  "Xem lịch chi tiết hội nghị 21–24/10 để chọn thêm phiên muốn dự",
+  "Kiểm tra lại trên Naver Map/Kakao Map các quán ăn thay thế (Dosolmaeul, quán trà Poseok-ro, quán Hanwoo tối 19/10) trước ngày đi"
+];
+
+function render(){
+  const daysEl = document.getElementById('days');
+  daysEl.innerHTML = days.map((day, idx) => `
+    <div class="day" id="day-${idx}">
+      <div class="day-head" onclick="toggleDay(${idx})">
+        <div class="day-badge" style="background:${day.color}">
+          <div class="num">${day.num}</div>
+          <div class="mon">${day.mon}</div>
+        </div>
+        <div class="titles">
+          <div class="dname">${day.dow} · ${day.date}</div>
+          <h3>${day.title}</h3>
+          <div class="day-flags">
+            ${day.flags.map(f=>`<span class="flag ${f.includes('bắt buộc')?'conf':(f.includes('Tour')?'tour':(f.includes('KHÔNG')?'free':'travel'))}">${f}</span>`).join('')}
+          </div>
+        </div>
+        <div class="chev">▾</div>
+      </div>
+      <div class="day-body" id="body-${idx}">
+        <div class="day-body-inner">
+          ${day.items.map(it => `
+            <div class="item ${it.cls || ''}">
+              <div class="time">${it.t}</div>
+              <div class="desc">${it.d}</div>
+              ${it.crowd ? `<div class="crowd">${it.crowd}</div>` : ''}
+              ${it.alt ? `<div class="alt">${it.alt}</div>` : ''}
+            </div>
+          `).join('')}
+        </div>
+        ${day.good ? `<div class="good-inline" style="margin-left:84px;margin-right:18px;">✅ ${day.good}</div>` : ''}
+        ${day.note ? `<div class="note-inline" style="margin-left:84px;margin-right:18px;">💡 ${day.note}</div>` : ''}
+        ${day.warn ? `<div class="warn-inline" style="margin-left:84px;margin-right:18px;">⚠️ ${day.warn}</div>` : ''}
+      </div>
+    </div>
+  `).join('');
+
+  const todoEl = document.getElementById('todo');
+  todoEl.innerHTML = todos.map((t,i)=>`
+    <label>
+      <input type="checkbox" onchange="toggleTodo(this)">
+      <span>${t}</span>
+    </label>
+  `).join('');
+}
+
+function toggleDay(idx){
+  const day = document.getElementById('day-'+idx);
+  const body = document.getElementById('body-'+idx);
+  const isOpen = day.classList.contains('open');
+  if(isOpen){
+    body.style.maxHeight = null;
+    day.classList.remove('open');
+  } else {
+    day.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+
+function toggleTodo(cb){
+  cb.nextElementSibling.classList.toggle('done', cb.checked);
+}
+
+render();
+toggleDay(0);
+</script>
+
+</body>
+</html>
