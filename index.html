@@ -355,6 +355,16 @@
   <main>
 
     <section>
+      <div class="alert bad">
+        <div class="ic">🎟️</div>
+        <div>
+          <b>Cập nhật 16/9/2026 — APHRS Busan Refresh Tour chỉ cho giữ 1 trong 3 tour:</b>
+          <p>Ban tổ chức thông báo mỗi người chỉ được giữ <b>1 tour</b>, hai tour còn lại sẽ tự động huỷ. <b>Đã chọn giữ Tour 1 — Haedong Yonggungsa Temple &amp; Jukseong Church (22/10)</b>, vì đây là khu vực (Gijang) xa và bất tiện nhất nếu tự đi (không có metro, taxi/bus mất 25–50 phút mỗi chiều), lại là trải nghiệm đặc sắc nhất (chùa hiếm hoi dựng sát mép biển). Ngược lại, Gamcheon Culture Village, Jagalchi Market, UN Memorial Cemetery và Oryukdo Skywalk đều nằm trong nội thành Busan, dễ tự đi bằng taxi/metro trong 15–30 phút — nên lịch bên dưới đã đổi Tour 2 &amp; Tour 3 thành các buổi tự đi tương ứng.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
       <div class="alert good">
         <div class="ic">✅</div>
         <div>
@@ -581,7 +591,7 @@
 
   </main>
 
-  <footer>Lịch trình hợp nhất từ bản logistics + bản chị Yến soạn (Gemini) — đã rà soát và cập nhật quán ăn/mức độ đông đúc ngày 16/9/2026 — có thể còn thay đổi khi chốt khách sạn Busan &amp; giờ xe khách chính xác gần ngày đi.</footer>
+  <footer>Lịch trình hợp nhất từ bản logistics + bản chị Yến soạn (Gemini) — đã rà soát và cập nhật quán ăn/mức độ đông đúc ngày 16/9/2026, và cập nhật quyết định giữ Tour 1 ngày 16/9/2026 — có thể còn thay đổi khi chốt khách sạn Busan &amp; giờ xe khách chính xác gần ngày đi.</footer>
 </div>
 </div>
 
@@ -650,38 +660,41 @@ const days = [
   {
     date:"22/10", dow:"Thứ 5", mon:"Th10", num:"22",
     color: COLORS.conf,
-    title:"Bờ Đông hoang sơ + báo cáo poster + Tour 1",
-    flags:["🏛️ Hội nghị bắt buộc","🎟️ Tour đã đặt"],
+    title:"Bờ Đông hoang sơ + báo cáo poster + Tour 1 (giữ lại)",
+    flags:["🏛️ Hội nghị bắt buộc","🎟️ Tour 1 — đã xác nhận giữ"],
     items:[
       {t:"Sáng", d:"Chị tự do: <b>Haeundae Blueline Park</b> (tàu ven biển Mipo → Cheongsapo) — nên đặt vé online trước. Anh chuẩn bị/rà lại poster."},
       {t:"Trưa", d:"Sò điệp nướng hoặc mì hải sản tại bến Cheongsapo."},
       {t:"13:20–13:50", d:"<b>Báo cáo poster tại BEXCO.</b>", cls:"mandatory"},
-      {t:"14:00–18:00", d:"<b>Tour 1</b> — Haedong Yonggungsa Temple &amp; Jukseong Church."},
+      {t:"14:00–18:00", d:"<b>Tour 1 (đã xác nhận giữ)</b> — Haedong Yonggungsa Temple &amp; Jukseong Church, khởi hành từ BEXCO ngay sau giờ báo cáo poster."},
       {t:"Tối", d:"Cua tuyết hấp tại chợ cua Gijang, nghỉ sớm — mai còn phiên sáng bắt buộc."}
-    ]
+    ],
+    good:"APHRS chỉ cho giữ 1 trong 3 tour đã đăng ký — đã chọn giữ Tour 1 vì khu Gijang xa/khó tự đi nhất và trải nghiệm đặc sắc nhất, lại khớp lịch hoàn hảo ngay sau giờ báo cáo poster tại cùng địa điểm BEXCO."
   },
   {
     date:"23/10", dow:"Thứ 6", mon:"Th10", num:"23",
     color: COLORS.conf,
-    title:"Làng nghệ thuật & chợ hải sản + phiên sáng",
-    flags:["🏛️ Hội nghị bắt buộc","🎟️ Tour đã đặt"],
+    title:"Làng nghệ thuật & chợ hải sản (tự đi) + phiên sáng",
+    flags:["🏛️ Hội nghị bắt buộc","🚶 Tự đi (Tour 2 đã huỷ)"],
     items:[
       {t:"08:00–08:20", d:"<b>Có mặt tại BEXCO.</b>", cls:"mandatory"},
       {t:"08:20–13:30", d:"Chị tự do: con đường sách cổ <b>Bosudong</b>. Trưa ăn vặt chợ Bupyeong Kkangtong."},
-      {t:"14:00–18:00", d:"<b>Tour 2</b> — Gamcheon Culture Village &amp; Jagalchi Market."},
+      {t:"14:00–18:00", d:"<b>Gamcheon Culture Village &amp; Jagalchi Market — tự đi.</b> Taxi Kakao T (~10–15 phút, ~8.000–10.000 KRW) hoặc metro tuyến 1 tới ga Toseong rồi taxi/bus ngắn lên làng."},
       {t:"Tối", d:"Sashimi mực sống hoặc lẩu hải sản tại Jagalchi/Nampo-dong."}
-    ]
+    ],
+    alt:"🚶 Tour 2 đã bị huỷ theo quy định mới của APHRS (chỉ giữ 1 tour). Gamcheon &amp; Jagalchi nằm trong nội thành nên tự đi rất dễ, không cần theo đoàn — có thể đi theo nhịp riêng."
   },
   {
     date:"24/10", dow:"Thứ 7", mon:"Th10", num:"24",
     color: COLORS.travel,
-    title:"Ký ức hòa bình & Oryukdo Skywalk",
-    flags:["🎟️ Tour đã đặt"],
+    title:"Ký ức hòa bình & Oryukdo Skywalk (tự đi)",
+    flags:["🚶 Tự đi (Tour 3 đã huỷ)"],
     items:[
       {t:"Sáng", d:"Chị tự do: <b>Hard Pause</b> tại Spa Land Centum City (~20.000 KRW, ~4 tiếng), kết hợp mua sắm Shinsegae/Olive Young.", cls:"pause"},
-      {t:"14:00–18:00", d:"<b>Tour 3</b> — UN Memorial Cemetery &amp; Oryukdo Skywalk (trang phục lịch sự khi viếng nghĩa trang)."},
+      {t:"14:00–18:00", d:"<b>UN Memorial Cemetery &amp; Oryukdo Skywalk — tự đi.</b> Metro tuyến 2 tới ga UN Park/Culture Village, sau đó taxi ngắn (~10 phút) qua Oryukdo Skywalk. Trang phục lịch sự khi viếng nghĩa trang."},
       {t:"Tối", d:"Dạo biển Haeundae, tiệc chia tay — Samgyeopsal/Chimaek. Đóng gói hành lý."}
-    ]
+    ],
+    alt:"🚶 Tour 3 đã bị huỷ theo quy định mới của APHRS. UN Cemetery &amp; Oryukdo Skywalk vẫn dễ tự đi bằng metro/taxi; nếu muốn nhẹ nhàng hơn sau chuỗi ngày hội nghị dài, có thể rút gọn thành buổi chiều nghỉ ngơi nối tiếp Spa Land buổi sáng."
   },
   {
     date:"25/10", dow:"Chủ nhật", mon:"Th10", num:"25",
@@ -700,6 +713,7 @@ const days = [
 ];
 
 const todos = [
+  "Trả lời email APHRS Secretariat xác nhận giữ Tour 1 (để họ huỷ Tour 2 & Tour 3)",
   "Chọn & đặt khách sạn Busan (khu Haeundae/Centum City)",
   "Quyết định có ghé thêm Seokguram Grotto ngày 20/10 hay bỏ qua",
   "Xác nhận lại giờ chạy chính xác xe khách Gyeongju → Haeundae gần ngày đi",
@@ -721,7 +735,7 @@ function render(){
           <div class="dname">${day.dow} · ${day.date}</div>
           <h3>${day.title}</h3>
           <div class="day-flags">
-            ${day.flags.map(f=>`<span class="flag ${f.includes('bắt buộc')?'conf':(f.includes('Tour')?'tour':(f.includes('KHÔNG')?'free':'travel'))}">${f}</span>`).join('')}
+            ${day.flags.map(f=>`<span class="flag ${f.includes('bắt buộc')?'conf':(f.includes('Tour')?'tour':(f.includes('Tự đi')||f.includes('KHÔNG')?'free':'travel'))}">${f}</span>`).join('')}
           </div>
         </div>
         <div class="chev">▾</div>
@@ -740,6 +754,7 @@ function render(){
         ${day.good ? `<div class="good-inline" style="margin-left:84px;margin-right:18px;">✅ ${day.good}</div>` : ''}
         ${day.note ? `<div class="note-inline" style="margin-left:84px;margin-right:18px;">💡 ${day.note}</div>` : ''}
         ${day.warn ? `<div class="warn-inline" style="margin-left:84px;margin-right:18px;">⚠️ ${day.warn}</div>` : ''}
+        ${day.alt ? `<div class="warn-inline" style="margin-left:84px;margin-right:18px;">${day.alt}</div>` : ''}
       </div>
     </div>
   `).join('');
