@@ -79,6 +79,7 @@
     padding-bottom:60px;
     transition:background .25s ease, color .25s ease;
   }
+  body.navlock{overflow:hidden;}
   #pageZoom{width:100%; margin:0 auto;}
   .wrap{max-width:760px;margin:0 auto;padding:0 18px;}
 
@@ -136,21 +137,69 @@
   .qcard .qc-main{font-size:16px; font-weight:700; margin-bottom:2px;}
   .qcard .qc-sub{font-size:13px; color:var(--ink-soft);}
 
-  .toc{
-    display:flex; flex-wrap:wrap; gap:8px;
-    background:var(--paper); border:1px solid var(--line); border-radius:16px;
-    box-shadow:var(--shadow); padding:12px; margin-top:18px; position:relative; z-index:2;
+  /* ---- Menu mục lục dạng thanh trượt bên trái ---- */
+  .navbtn{
+    position:fixed;
+    top:calc(10px + env(safe-area-inset-top, 0px));
+    left:calc(10px + env(safe-area-inset-left, 0px));
+    z-index:999;
+    width:44px; height:44px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--toolbar-bg); border:1px solid var(--toolbar-border);
+    box-shadow:0 4px 14px rgba(0,0,0,0.18);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    cursor:pointer; appearance:none; font-family:inherit;
   }
-  .toc-link{
-    display:inline-block; font-size:12.5px; font-weight:700; color:var(--teal);
-    background:var(--teal-soft); padding:7px 12px; border-radius:999px;
-    text-decoration:none; white-space:nowrap; transition:background .15s ease, transform .1s ease;
+  .navbtn span, .navbtn span::before, .navbtn span::after{
+    content:""; display:block; width:18px; height:2px; background:var(--ink);
+    border-radius:2px; transition:transform .25s ease, opacity .2s ease;
   }
-  .toc-link:hover, .toc-link:active{background:var(--terracotta-soft); color:var(--terracotta);}
-  @media(max-width:520px){
-    .toc{gap:6px; padding:10px;}
-    .toc-link{font-size:12px; padding:6px 10px;}
+  .navbtn span{position:relative;}
+  .navbtn span::before{position:absolute; top:-6px; left:0;}
+  .navbtn span::after{position:absolute; top:6px; left:0;}
+  .navbtn.open span{background:transparent;}
+  .navbtn.open span::before{transform:translateY(6px) rotate(45deg);}
+  .navbtn.open span::after{transform:translateY(-6px) rotate(-45deg);}
+
+  .navdrawer{
+    position:fixed; top:0; left:0; bottom:0;
+    width:280px; max-width:82vw;
+    background:var(--paper);
+    box-shadow:4px 0 24px rgba(0,0,0,0.18);
+    transform:translateX(-100%);
+    transition:transform .28s ease;
+    z-index:1001;
+    display:flex; flex-direction:column;
+    padding:calc(18px + env(safe-area-inset-top,0px)) 0 18px;
   }
+  .navdrawer.open{transform:translateX(0);}
+  .navdrawer-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 18px 14px; margin-bottom:6px; border-bottom:1px solid var(--line);
+  }
+  .navdrawer-head b{font-size:15px;}
+  .navdrawer-close{
+    width:32px; height:32px; border-radius:50%; border:none; background:var(--cream);
+    color:var(--ink-soft); font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  }
+  .navlist{list-style:none; margin:0; padding:6px 10px; overflow-y:auto;}
+  .navlist li{margin:2px 0;}
+  .navlist a{
+    display:flex; align-items:center; gap:10px;
+    padding:11px 12px; border-radius:12px;
+    color:var(--ink); text-decoration:none; font-size:14.5px; font-weight:600;
+    transition:background .15s ease, color .15s ease;
+  }
+  .navlist a .navicon{font-size:17px; flex:0 0 auto;}
+  .navlist a:hover, .navlist a:active, .navlist a.active{
+    background:var(--teal-soft); color:var(--teal);
+  }
+  .navoverlay{
+    position:fixed; inset:0; background:rgba(20,16,12,0.42);
+    opacity:0; pointer-events:none; transition:opacity .25s ease;
+    z-index:1000;
+  }
+  .navoverlay.open{opacity:1; pointer-events:auto;}
 
   main{margin-top:34px;}
   section{margin-bottom:34px;}
@@ -334,6 +383,30 @@
 </head>
 <body>
 
+<button class="navbtn" id="navBtn" aria-label="Mở mục lục" title="Mục lục" aria-expanded="false">
+  <span></span>
+</button>
+
+<div class="navoverlay" id="navOverlay"></div>
+
+<aside class="navdrawer" id="navDrawer" aria-hidden="true">
+  <div class="navdrawer-head">
+    <b>Mục lục</b>
+    <button class="navdrawer-close" id="navClose" aria-label="Đóng mục lục">✕</button>
+  </div>
+  <ul class="navlist">
+    <li><a href="#cap-nhat" data-nav><span class="navicon">🆕</span>Cập nhật</a></li>
+    <li><a href="#khach-san" data-nav><span class="navicon">🏨</span>Khách sạn</a></li>
+    <li><a href="#di-chuyen" data-nav><span class="navicon">🚌</span>Di chuyển</a></li>
+    <li><a href="#lich-trinh" data-nav><span class="navicon">📅</span>Lịch trình theo ngày</a></li>
+    <li><a href="#trang-phuc" data-nav><span class="navicon">👗</span>Trang phục</a></li>
+    <li><a href="#chuan-bi" data-nav><span class="navicon">✅</span>Chuẩn bị</a></li>
+    <li><a href="#mua-sam" data-nav><span class="navicon">🎁</span>Mua sắm</a></li>
+    <li><a href="#ve-the" data-nav><span class="navicon">🎫</span>Vé/thẻ</a></li>
+    <li><a href="#viec-can-chot" data-nav><span class="navicon">📋</span>Việc cần chốt</a></li>
+  </ul>
+</aside>
+
 <div class="pagectrls" id="pagectrls">
   <button class="pc-btn" id="fsDown" aria-label="Giảm cỡ chữ" title="Giảm cỡ chữ">a</button>
   <button class="pc-btn" id="fsUp" aria-label="Tăng cỡ chữ" title="Tăng cỡ chữ">A</button>
@@ -368,18 +441,6 @@
       <div class="qc-sub">21–25/10 · khu Haeundae</div>
     </div>
   </div>
-
-  <nav class="toc" aria-label="Mục lục">
-    <a class="toc-link" href="#cap-nhat">🆕 Cập nhật</a>
-    <a class="toc-link" href="#khach-san">🏨 Khách sạn</a>
-    <a class="toc-link" href="#di-chuyen">🚌 Di chuyển</a>
-    <a class="toc-link" href="#lich-trinh">📅 Lịch trình theo ngày</a>
-    <a class="toc-link" href="#trang-phuc">👗 Trang phục</a>
-    <a class="toc-link" href="#chuan-bi">✅ Chuẩn bị</a>
-    <a class="toc-link" href="#mua-sam">🎁 Mua sắm</a>
-    <a class="toc-link" href="#ve-the">🎫 Vé/thẻ</a>
-    <a class="toc-link" href="#viec-can-chot">📋 Việc cần chốt</a>
-  </nav>
 
   <main>
 
@@ -907,6 +968,60 @@ initPrefs();
 
 render();
 toggleDay(0);
+
+// ---- Thanh mục lục trượt bên trái ----
+const navBtn = document.getElementById('navBtn');
+const navDrawer = document.getElementById('navDrawer');
+const navOverlay = document.getElementById('navOverlay');
+const navClose = document.getElementById('navClose');
+
+function openNav(){
+  navDrawer.classList.add('open');
+  navOverlay.classList.add('open');
+  navBtn.classList.add('open');
+  navDrawer.setAttribute('aria-hidden','false');
+  navBtn.setAttribute('aria-expanded','true');
+  document.body.classList.add('navlock');
+}
+function closeNav(){
+  navDrawer.classList.remove('open');
+  navOverlay.classList.remove('open');
+  navBtn.classList.remove('open');
+  navDrawer.setAttribute('aria-hidden','true');
+  navBtn.setAttribute('aria-expanded','false');
+  document.body.classList.remove('navlock');
+}
+navBtn.addEventListener('click', () => {
+  navDrawer.classList.contains('open') ? closeNav() : openNav();
+});
+navClose.addEventListener('click', closeNav);
+navOverlay.addEventListener('click', closeNav);
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape') closeNav();
+});
+document.querySelectorAll('.navlist a[data-nav]').forEach(a => {
+  a.addEventListener('click', () => { closeNav(); });
+});
+
+// Highlight mục đang xem khi cuộn trang
+const navLinks = Array.from(document.querySelectorAll('.navlist a[data-nav]'));
+const navSections = navLinks
+  .map(a => document.querySelector(a.getAttribute('href')))
+  .filter(Boolean);
+
+function updateActiveNav(){
+  let currentId = null;
+  const probeY = 120;
+  navSections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if(rect.top <= probeY){ currentId = '#' + sec.id; }
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === currentId);
+  });
+}
+window.addEventListener('scroll', updateActiveNav, {passive:true});
+updateActiveNav();
 </script>
 
 </body>
