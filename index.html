@@ -252,6 +252,11 @@
   .info-card .ic-top{font-size:22px; margin-bottom:6px;}
   .info-card h4{margin:0 0 6px; font-size:14.5px;}
   .info-card p{margin:0; font-size:13px; color:var(--ink-soft);}
+  .info-card.check-card{display:flex; align-items:flex-start; gap:10px; cursor:pointer;}
+  .info-card.check-card .prep-check{margin-top:4px; width:18px; height:18px; accent-color:var(--terracotta); flex:0 0 auto; cursor:pointer;}
+  .info-card.check-card .check-body{flex:1; min-width:0;}
+  .info-card.check-card:has(.prep-check:checked){background:var(--cream); opacity:.65;}
+  .info-card.check-card:has(.prep-check:checked) h4{text-decoration:line-through;}
 
   .todo{background:var(--paper); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:6px 18px;}
   .todo label{display:flex; align-items:flex-start; gap:10px; padding:12px 0; border-bottom:1px solid var(--line); font-size:14px; cursor:pointer;}
@@ -466,37 +471,64 @@
 
     <section>
       <h2 class="section-title"><span class="dot"></span>Chuẩn bị trước chuyến đi</h2>
+      <div class="section-note">Tick vào từng ô khi đã chuẩn bị xong — trạng thái sẽ được nhớ lại ở lần mở sau.</div>
       <div class="infogrid">
-        <div class="info-card">
-          <div class="ic-top">📶</div>
-          <h4>eSIM / SIM Hàn Quốc</h4>
-          <p>Mua eSIM trước chuyến đi (Klook/Airalo/Gohub), hoặc SIM vật lý tại quầy GS25 sân bay Gimhae.</p>
-        </div>
-        <div class="info-card">
-          <div class="ic-top">🗺️</div>
-          <h4>Bản đồ</h4>
-          <p>Google Maps hạn chế ở Hàn Quốc — dùng Naver Map hoặc Kakao Map. Thêm Papago để dịch.</p>
-        </div>
-        <div class="info-card">
-          <div class="ic-top">💳</div>
-          <h4>Thẻ T-money/WOWPASS</h4>
-          <p>Mua 2 thẻ tại GS25/CU sân bay Gimhae, nạp sẵn ~30.000 KRW/thẻ. Xe khách liên tỉnh không dùng được T-money.</p>
-        </div>
-        <div class="info-card">
-          <div class="ic-top">🚕</div>
-          <h4>Gọi taxi</h4>
-          <p>Kakao T là lựa chọn chính — chọn "Pay to Driver" để tránh lỗi thẻ quốc tế.</p>
-        </div>
-        <div class="info-card">
-          <div class="ic-top">🌤️</div>
-          <h4>Thời tiết</h4>
-          <p>9–20°C. Sáng sớm/đêm lạnh se buốt kèm gió biển, ban ngày nắng dịu.</p>
-        </div>
-        <div class="info-card">
-          <div class="ic-top">💵</div>
-          <h4>Tiền mặt</h4>
-          <p>Đổi sẵn ~100.000–150.000 KRW — một số máy vé/taxi cũ không nhận thẻ quốc tế.</p>
-        </div>
+        <label class="info-card check-card">
+          <input type="checkbox" class="prep-check" data-key="esim">
+          <div class="check-body">
+            <div class="ic-top">📶</div>
+            <h4>eSIM / SIM Hàn Quốc</h4>
+            <p>Mua eSIM trước chuyến đi (Klook/Airalo/Gohub), hoặc SIM vật lý tại quầy GS25 sân bay Gimhae.</p>
+          </div>
+        </label>
+        <label class="info-card check-card">
+          <input type="checkbox" class="prep-check" data-key="map">
+          <div class="check-body">
+            <div class="ic-top">🗺️</div>
+            <h4>Bản đồ</h4>
+            <p>Google Maps hạn chế ở Hàn Quốc — dùng Naver Map hoặc Kakao Map. Thêm Papago để dịch.</p>
+          </div>
+        </label>
+        <label class="info-card check-card">
+          <input type="checkbox" class="prep-check" data-key="tmoney">
+          <div class="check-body">
+            <div class="ic-top">💳</div>
+            <h4>Thẻ T-money/WOWPASS</h4>
+            <p>Mua 2 thẻ tại GS25/CU sân bay Gimhae, nạp sẵn ~30.000 KRW/thẻ. Xe khách liên tỉnh không dùng được T-money.</p>
+          </div>
+        </label>
+        <label class="info-card check-card">
+          <input type="checkbox" class="prep-check" data-key="taxi">
+          <div class="check-body">
+            <div class="ic-top">🚕</div>
+            <h4>Gọi taxi</h4>
+            <p>Kakao T là lựa chọn chính — chọn "Pay to Driver" để tránh lỗi thẻ quốc tế.</p>
+          </div>
+        </label>
+        <label class="info-card check-card">
+          <input type="checkbox" class="prep-check" data-key="weather">
+          <div class="check-body">
+            <div class="ic-top">🌤️</div>
+            <h4>Thời tiết</h4>
+            <p>9–20°C. Sáng sớm/đêm lạnh se buốt kèm gió biển, ban ngày nắng dịu.</p>
+          </div>
+        </label>
+        <label class="info-card check-card">
+          <input type="checkbox" class="prep-check" data-key="cash">
+          <div class="check-body">
+            <div class="ic-top">💵</div>
+            <h4>Tiền mặt</h4>
+            <p>Đổi sẵn ~100.000–150.000 KRW — một số máy vé/taxi cũ không nhận thẻ quốc tế.</p>
+          </div>
+        </label>
+        <label class="info-card check-card">
+          <input type="checkbox" class="prep-check" data-key="adapter">
+          <div class="check-body">
+            <div class="ic-top">🔌</div>
+            <h4>Adapter chuyển chân cắm</h4>
+            <p>Hàn Quốc dùng ổ cắm chân tròn kiểu C/F (220V, 60Hz); Việt Nam phổ biến ổ chân dẹt kiểu A (220V, 50Hz) nên không phải lúc nào cũng cắm vừa — nên mang theo 1–2 adapter chuyển đổi (hoặc adapter đa năng du lịch) cho sạc điện thoại/laptop, phòng khi thiết bị chỉ có chân dẹt.</p>
+          </div>
+        </label>
       </div>
     </section>
 
@@ -672,7 +704,8 @@ const todos = [
   "Quyết định có ghé thêm Seokguram Grotto ngày 20/10 hay bỏ qua",
   "Xác nhận lại giờ chạy chính xác xe khách Gyeongju → Haeundae gần ngày đi",
   "Xem lịch chi tiết hội nghị 21–24/10 để chọn thêm phiên muốn dự",
-  "Kiểm tra lại trên Naver Map/Kakao Map các quán ăn thay thế (Dosolmaeul, quán trà Poseok-ro, quán Hanwoo tối 19/10) trước ngày đi"
+  "Kiểm tra lại trên Naver Map/Kakao Map các quán ăn thay thế (Dosolmaeul, quán trà Poseok-ro, quán Hanwoo tối 19/10) trước ngày đi",
+  "Mang theo adapter chuyển chân cắm (Hàn Quốc dùng chân tròn C/F, khác chân dẹt A phổ biến ở Việt Nam)"
 ];
 
 function render(){
@@ -714,10 +747,11 @@ function render(){
   const todoEl = document.getElementById('todo');
   todoEl.innerHTML = todos.map((t,i)=>`
     <label>
-      <input type="checkbox" onchange="toggleTodo(this)">
+      <input type="checkbox" data-todo-idx="${i}" onchange="toggleTodo(this)">
       <span>${t}</span>
     </label>
   `).join('');
+  restoreTodoChecks();
 }
 
 function toggleDay(idx){
@@ -735,6 +769,37 @@ function toggleDay(idx){
 
 function toggleTodo(cb){
   cb.nextElementSibling.classList.toggle('done', cb.checked);
+  try{
+    const done = JSON.parse(localStorage.getItem('gj-todo-done') || '{}');
+    done[cb.dataset.todoIdx] = cb.checked;
+    localStorage.setItem('gj-todo-done', JSON.stringify(done));
+  }catch(e){ /* ignore */ }
+}
+
+function restoreTodoChecks(){
+  let done = {};
+  try{ done = JSON.parse(localStorage.getItem('gj-todo-done') || '{}'); }catch(e){ /* ignore */ }
+  document.querySelectorAll('#todo input[data-todo-idx]').forEach(cb => {
+    if(done[cb.dataset.todoIdx]){
+      cb.checked = true;
+      cb.nextElementSibling.classList.add('done');
+    }
+  });
+}
+
+function restorePrepChecks(){
+  let done = {};
+  try{ done = JSON.parse(localStorage.getItem('gj-prep-done') || '{}'); }catch(e){ /* ignore */ }
+  document.querySelectorAll('.prep-check').forEach(cb => {
+    if(done[cb.dataset.key]){ cb.checked = true; }
+    cb.addEventListener('change', () => {
+      try{
+        const state = JSON.parse(localStorage.getItem('gj-prep-done') || '{}');
+        state[cb.dataset.key] = cb.checked;
+        localStorage.setItem('gj-prep-done', JSON.stringify(state));
+      }catch(e){ /* ignore */ }
+    });
+  });
 }
 
 // ---- Cỡ chữ & giao diện sáng/tối ----
@@ -783,6 +848,8 @@ function initPrefs(){
     theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
   }
   applyTheme(theme);
+
+  restorePrepChecks();
 }
 
 document.getElementById('fsDown').addEventListener('click', () => changeFontSize(-1));
