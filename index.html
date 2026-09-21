@@ -194,6 +194,36 @@
   .navlist a:hover, .navlist a:active, .navlist a.active{
     background:var(--teal-soft); color:var(--teal);
   }
+  .navgroup-row{
+    display:flex; align-items:stretch;
+    border-radius:12px; transition:background .15s ease, color .15s ease;
+  }
+  .navgroup-row:hover{background:var(--teal-soft); color:var(--teal);}
+  .navgroup-row a{flex:1; min-width:0; border-radius:12px 0 0 12px;}
+  .navgroup-row a:hover{background:none;}
+  .navgroup-chevron{
+    appearance:none; border:none; background:none; cursor:pointer;
+    flex:0 0 auto; width:38px; display:flex; align-items:center; justify-content:center;
+    color:var(--ink-soft); font-size:12px; font-family:inherit;
+    border-radius:0 12px 12px 0; transition:transform .2s ease, color .15s ease;
+  }
+  .navgroup-row:hover .navgroup-chevron{color:var(--teal);}
+  .navgroup-row.open .navgroup-chevron{transform:rotate(180deg);}
+  .navsublist{
+    list-style:none; margin:0; padding:0; max-height:0; overflow:hidden;
+    transition:max-height .3s ease;
+  }
+  .navsublist li{margin:1px 0 1px 14px;}
+  .navsublist a{
+    display:block; padding:9px 12px; margin-left:8px; border-left:2px solid var(--line);
+    border-radius:0 10px 10px 0;
+    color:var(--ink-soft); text-decoration:none; font-size:13px; font-weight:600;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    transition:background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .navsublist a:hover, .navsublist a.active{
+    background:var(--teal-soft); color:var(--teal); border-left-color:var(--teal);
+  }
   .navoverlay{
     position:fixed; inset:0; background:rgba(20,16,12,0.42);
     opacity:0; pointer-events:none; transition:opacity .25s ease;
@@ -398,7 +428,13 @@
     <li><a href="#cap-nhat" data-nav><span class="navicon">🆕</span>Cập nhật</a></li>
     <li><a href="#khach-san" data-nav><span class="navicon">🏨</span>Khách sạn</a></li>
     <li><a href="#di-chuyen" data-nav><span class="navicon">🚌</span>Di chuyển</a></li>
-    <li><a href="#lich-trinh" data-nav><span class="navicon">📅</span>Lịch trình theo ngày</a></li>
+    <li class="navgroup">
+      <div class="navgroup-row" id="navGroupLichTrinh">
+        <a href="#lich-trinh" id="navLichTrinhLink"><span class="navicon">📅</span>Lịch trình theo ngày</a>
+        <button class="navgroup-chevron" id="navGroupChevron" type="button" aria-label="Mở rộng danh sách ngày" aria-expanded="false">▾</button>
+      </div>
+      <ul class="navsublist" id="navDaysSub"></ul>
+    </li>
     <li><a href="#trang-phuc" data-nav><span class="navicon">👗</span>Trang phục</a></li>
     <li><a href="#chuan-bi" data-nav><span class="navicon">✅</span>Chuẩn bị</a></li>
     <li><a href="#mua-sam" data-nav><span class="navicon">🎁</span>Mua sắm</a></li>
@@ -867,6 +903,11 @@ function render(){
     </div>
   `).join('');
 
+  const navDaysSubEl = document.getElementById('navDaysSub');
+  navDaysSubEl.innerHTML = days.map((day, idx) => `
+    <li><a href="#day-${idx}" data-nav data-day-idx="${idx}" title="${day.dow} · ${day.date} — ${day.title}">${day.date} — ${day.title}</a></li>
+  `).join('');
+
   const todoEl = document.getElementById('todo');
   todoEl.innerHTML = todos.map((t,i)=>`
     <label>
@@ -1019,6 +1060,38 @@ document.addEventListener('keydown', (e) => {
 });
 document.querySelectorAll('.navlist a[data-nav]').forEach(a => {
   a.addEventListener('click', () => { closeNav(); });
+});
+
+// ---- "Lịch trình theo ngày" mở rộng thành danh sách từng ngày ----
+const navGroupRow = document.getElementById('navGroupLichTrinh');
+const navGroupChevron = document.getElementById('navGroupChevron');
+const navLichTrinhLink = document.getElementById('navLichTrinhLink');
+const navDaysSubList = document.getElementById('navDaysSub');
+
+function toggleNavDaysGroup(forceOpen){
+  const isOpen = navGroupRow.classList.contains('open');
+  const willOpen = typeof forceOpen === 'boolean' ? forceOpen : !isOpen;
+  navGroupRow.classList.toggle('open', willOpen);
+  navGroupChevron.setAttribute('aria-expanded', String(willOpen));
+  navDaysSubList.style.maxHeight = willOpen ? navDaysSubList.scrollHeight + 'px' : null;
+}
+navLichTrinhLink.addEventListener('click', (e) => {
+  e.preventDefault();
+  toggleNavDaysGroup();
+});
+navGroupChevron.addEventListener('click', (e) => {
+  e.preventDefault();
+  toggleNavDaysGroup();
+});
+// Bấm vào một ngày cụ thể: mở ngày đó ra (nếu đang đóng) rồi để trình duyệt cuộn tới
+navDaysSubList.querySelectorAll('a[data-day-idx]').forEach(a => {
+  a.addEventListener('click', () => {
+    const idx = parseInt(a.dataset.dayIdx, 10);
+    const dayEl = document.getElementById('day-' + idx);
+    if(dayEl && !dayEl.classList.contains('open')){
+      toggleDay(idx);
+    }
+  });
 });
 
 // Highlight mục đang xem khi cuộn trang
