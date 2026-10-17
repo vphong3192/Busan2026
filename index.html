@@ -233,6 +233,7 @@
 
   main{margin-top:34px;}
   section{margin-bottom:34px;}
+  section.tight{margin-bottom:12px;}
   h2.section-title{
     font-size:20px; font-weight:800; margin:0 0 14px;
     display:flex; align-items:center;
@@ -326,6 +327,18 @@
   .item .alt{margin-top:6px; font-size:12.5px; color:var(--terracotta); background:var(--terracotta-soft); display:inline-block; padding:3px 9px; border-radius:8px;}
   .item .crowd{margin-top:6px; font-size:12.5px; color:var(--gold-text-strong); background:var(--gold-soft); display:inline-block; padding:3px 9px; border-radius:8px;}
   .item .confirmed{margin-top:6px; font-size:12.5px; color:var(--green-text-strong); background:var(--green-soft); display:inline-block; padding:3px 9px; border-radius:8px;}
+  .plan-head{
+    margin:14px 0 2px 22px; padding:6px 10px; border-radius:8px;
+    font-size:12.5px; font-weight:800; color:var(--teal); background:var(--teal-soft);
+    letter-spacing:.02em;
+  }
+  .outfit-block{
+    margin:10px 18px 0 84px; background:var(--cream); border:1px solid var(--line);
+    border-radius:10px; padding:10px 12px; font-size:13px; color:var(--ink);
+  }
+  .outfit-block .ot{display:block; font-weight:800; color:var(--teal); margin-bottom:2px;}
+  .outfit-block .ow{margin-top:6px;}
+  .outfit-block .ow b{color:var(--ink-soft);}
   .note-inline{
     margin-top:10px; margin-left:22px; background:var(--cream); border:1px dashed var(--line);
     border-radius:10px; padding:10px 12px; font-size:13px; color:var(--ink-soft);
@@ -342,6 +355,12 @@
     margin-top:10px; margin-left:22px; background:var(--green-soft); border:1px solid var(--green-border);
     border-radius:10px; padding:10px 12px; font-size:13px; color:var(--green-text);
   }
+  .day-body .day-bottom{height:18px;}
+  @media(max-width:520px){
+    .day-body-inner{padding-left:62px;}
+    .day-body-inner::before{left:30px;}
+    .outfit-block, .day-body .good-inline, .day-body .note-inline, .day-body .warn-inline{margin-left:18px !important;}
+  }
 
   .infogrid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   @media(max-width:560px){ .infogrid{grid-template-columns:1fr;} }
@@ -349,6 +368,8 @@
   .info-card .ic-top{font-size:22px; margin-bottom:6px;}
   .info-card h4{margin:0 0 6px; font-size:14.5px;}
   .info-card p{margin:0; font-size:13px; color:var(--ink-soft);}
+  .info-card p + p{margin-top:6px;}
+  .info-card.key{border-color:var(--teal); box-shadow:0 0 0 1px var(--teal) inset, var(--shadow);}
   .info-card.check-card{display:flex; align-items:flex-start; cursor:pointer;}
   .info-card.check-card .prep-check{margin-top:4px; margin-right:10px; width:18px; height:18px; accent-color:var(--terracotta); flex:0 0 auto; cursor:pointer;}
   .info-card.check-card .check-body{flex:1; min-width:0;}
@@ -427,6 +448,7 @@
   </div>
   <ul class="navlist">
     <li><a href="#cap-nhat" data-nav><span class="navicon">🆕</span>Cập nhật</a></li>
+    <li><a href="#bao-cao" data-nav><span class="navicon">🎤</span>Báo cáo &amp; poster</a></li>
     <li><a href="#khach-san" data-nav><span class="navicon">🏨</span>Khách sạn</a></li>
     <li><a href="#di-chuyen" data-nav><span class="navicon">🚌</span>Di chuyển</a></li>
     <li class="navgroup">
@@ -456,11 +478,11 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">Chuyến đi cùng nhau · APHRS 2026</div>
     <h1 class="hero-title">Gyeongju &amp; Busan</h1>
-    <p class="hero-sub">Lịch trình hợp nhất 19–25/10/2026 — kết hợp phần logistics/hội nghị với triết lý "Có mặt thật" và các gợi ý quán ăn, trang phục của chị. Bấm vào từng ngày để xem chi tiết nhé.</p>
+    <p class="hero-sub">Lịch trình hợp nhất 19–25/10/2026 — hội nghị, báo cáo Best of the Best, du lịch và trang phục từng ngày theo Lookbook của chị. Bấm vào từng ngày để xem chi tiết.</p>
     <div class="hero-chips">
       <div class="chip">✈️ HAN → PUS: 19/10, 01:05</div>
+      <div class="chip">🎤 Báo cáo: 21/10, 14:30</div>
       <div class="chip">✈️ PUS → HAN: 25/10, 08:10</div>
-      <div class="chip">📍 7 ngày 6 đêm</div>
     </div>
   </div>
 </header>
@@ -481,52 +503,32 @@
 
   <main>
 
-    <section id="cap-nhat">
+    <section id="cap-nhat" class="tight">
       <div class="alert good">
-        <div class="ic">🏨</div>
+        <div class="ic">🎤</div>
         <div>
-          <b>Cập nhật 24/9/2026 — đã đặt khách sạn Busan: Centum Business Hotel</b>
-          <p>Khách sạn ở <b>17 Centum 1-ro, Haeundae-gu</b>, ngay cạnh ga metro <b>Centum City (lối ra 11)</b>, cách <b>BEXCO ~10 phút đi bộ</b> — rất thuận cho các mốc hội nghị bắt buộc. Đã rà lại lịch theo vị trí và giờ nhận/trả phòng (<b>nhận từ 15:00, trả trước 11:00</b>) và chỉnh: <b>trưa 21/10</b> (chưa nhận phòng được ngay → gửi hành lý, ăn trưa gần Centum City thay vì Gukbap chợ Haeundae), <b>sáng 22/10 & 23/10</b> (khách sạn thường không kèm bữa sáng; trừ hao thang máy chậm), <b>tối 22/10</b> (cân nhắc lại chuyến cua tuyết Gijang), <b>23/10</b> (đường về từ Jagalchi), và <b>25/10</b> (hẹn taxi từ tối trước, trả phòng sớm). Việc cần chốt: nhắn khách sạn xin nhận phòng sớm/gửi hành lý; bổ sung mã đặt phòng &amp; loại phòng vào file. Chi tiết ở mục Khách sạn, từng ngày và Việc còn cần chốt.</p>
+          <b>Cập nhật 17/10/2026 — giờ báo cáo Best of the Best &amp; thủ tục Preview Room</b>
+          <p>Vòng sơ khảo <b>21/10, 14:30–15:45</b>, Convention Hall 1F, Room 12 (110) — anh báo cáo <b>lượt thứ 3</b> (~14:44–14:51); đây là phiên bắt buộc duy nhất của chiều 21/10, chị vào nghe cùng. Nếu vào top 6: chung kết <b>23/10, 11:20–12:35</b>, Exhibition Hall 1F, Room 13. Theo hướng dẫn chính thức: tải file bằng USB tại <b>Preview Room ≥30 phút trước phiên</b>, ngồi trong phòng <b>≥15 phút trước lượt báo cáo</b>. Đã chỉnh 21/10 (xe khách ~10:00, hạn tải file 14:00), tối 22/10 (ăn gần khách sạn, tập bài nếu vào chung kết) và 23/10 (Phương án A/B). Slide đã xong; đồng nghiệp gỡ poster hộ.</p>
         </div>
       </div>
     </section>
 
-    <section id="cap-nhat-22-9">
+    <section class="tight">
+      <div class="alert good">
+        <div class="ic">👗</div>
+        <div>
+          <b>Cập nhật 26/9/2026 — tích hợp Lookbook trang phục</b>
+          <p>Mỗi ngày có khung <b>👗 Trang phục</b> cho chị và anh. Kèm theo đó chỉnh giờ: 19/10 về khách sạn thay đồ trước Hồ Wolji; 20/10 ghé khách sạn nghỉ + thay đồ sau Bulguksa (thay cho quán trà); 21/10 thêm buổi dạo cỏ hồng sáng sớm; 22/10 tập trung tour 13:45; 24/10 thay đồ từ 14:45.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tight">
       <div class="alert good">
         <div class="ic">✅</div>
         <div>
-          <b>Cập nhật 22/9/2026 — đã đặt xong vé Sky Capsule:</b>
-          <p>Vé <b>Sky Capsule (Haeundae Blueline Park)</b> khung hoàng hôn <b>16:30–17:00 ngày 24/10</b>, chiều Mipo → Cheongsapo, khoang 2 người — đã đặt và thanh toán thành công đúng sáng mở bán (thứ Ba 22/9, 5:00 sáng giờ VN). <b>Mã đặt chỗ: RS26017333372</b> (mã vé 26018070007-1), 50.000 KRW, trạng thái "Reservation Complete (Valid Ticket)". Vé điện tử/QR gửi qua KakaoTalk tới số điện thoại đã đăng ký — nên chụp lại màn hình xác nhận làm bản lưu dự phòng. Chi tiết đầy đủ ở mục Ngày 24/10 bên dưới.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="cap-nhat-18-9">
-      <div class="alert good">
-        <div class="ic">🆕</div>
-        <div>
-          <b>Cập nhật 18/9/2026 — đã chốt lại toàn bộ 22–24/10:</b>
-          <p><b>Sáng 22/10</b> đổi từ Haeundae Blueline Park sang <b>Spa Land Centum City</b> (trong khu Shinsegae Centum City, sát khách sạn Busan, tiện gặp nhau trước giờ báo cáo poster). <b>Ngày 24/10</b> đổi hẳn khỏi kế hoạch UN Memorial Cemetery/Oryukdo Skywalk tự đi (Tour 3 đã huỷ) — thay bằng một ngày riêng của hai vợ chồng: dạo đảo Dongbaekseom &amp; Nurimaru APEC House buổi sáng, nghỉ ngơi đầu giờ chiều, rồi <b>Sky Capsule ngắm hoàng hôn</b> Mipo → Cheongsapo và <b>show drone Gwangalli</b> (chỉ xem suất 19:00 vì hôm sau dậy sớm ra sân bay). Cũng đã xác minh thêm: quán cơm lá sen tối 20/10 đúng tên là <b>수경사 (Sugyeongsa)</b> — không phải "숙영식당" (tên gần giống nhưng là quán khác, đã đóng cửa). Chi tiết đầy đủ trong từng ngày bên dưới.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="cap-nhat-tour">
-      <div class="alert good">
-        <div class="ic">🎟️</div>
-        <div>
-          <b>Cập nhật 16/9/2026 (đã gửi email xác nhận 22/9/2026) — APHRS Busan Refresh Tour chỉ cho giữ 1 trong 3 tour:</b>
-          <p>Ban tổ chức thông báo mỗi người chỉ được giữ <b>1 tour</b>, hai tour còn lại sẽ tự động huỷ. <b>Đã chọn giữ Tour 1 — Haedong Yonggungsa Temple &amp; Jukseong Church (22/10)</b>, vì đây là khu vực (Gijang) xa và bất tiện nhất nếu tự đi (không có metro, taxi/bus mất 25–50 phút mỗi chiều), lại là trải nghiệm đặc sắc nhất (chùa hiếm hoi dựng sát mép biển). Ngược lại, Gamcheon Culture Village và Jagalchi Market nằm trong nội thành Busan, dễ tự đi bằng taxi/metro trong 15–30 phút — nên chiều 23/10 (Tour 2) đã đổi thành buổi tự đi. Riêng chiều 24/10 (Tour 3), thay vì tự đi UN Memorial Cemetery/Oryukdo Skywalk, anh chị đã chọn dành cả buổi chiều-tối cho một hoạt động khác — xem cập nhật 18/9/2026 ở trên. ✅ Đã gửi email cho APHRS Secretariat xác nhận giữ Tour 1 (22/9/2026) — họ sẽ tự huỷ Tour 2 &amp; Tour 3.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="alert good">
-        <div class="ic">✅</div>
-        <div>
-          <b>Đã chốt 3 điểm còn vướng ở bản trước:</b>
-          <p>(1) Khách sạn Gyeongju đúng là <b>Sugar Hotel</b> theo booking — đã cập nhật lại khoảng cách đi bộ tới các điểm tham quan cho sát thực tế. (2) <b>Sáng 21/10 không bắt buộc</b> dự hội nghị — sáng đó được dùng để di chuyển thong thả. (3) Đã kiểm tra và xác nhận có <b>tuyến xe khách chạy thẳng Gyeongju → Haeundae</b> (~1h17, 10.500 KRW/người, ~15 chuyến/ngày từ 07:10–21:10) — đơn giản hơn hẳn phương án vòng qua sân bay Gimhae trước đó, nên lịch trình dưới đây đã đổi sang tuyến này.</p>
+          <b>Đã chốt từ trước (16–24/9/2026)</b>
+          <p>Giữ <b>Tour 1</b> (Haedong Yonggungsa &amp; Jukseong, 22/10) — Tour 2, 3 đã huỷ. Sáng 22/10 đi <b>Spa Land</b>; 24/10 là ngày riêng hai vợ chồng. Đã đặt <b>Sky Capsule</b> 16:30 ngày 24/10 (RS26017333372) và <b>Centum Business Hotel</b> 21–25/10. Xe khách chạy thẳng Gyeongju → Haeundae đã kiểm chứng.</p>
         </div>
       </div>
     </section>
@@ -535,18 +537,55 @@
       <div class="alert bad">
         <div class="ic">🚨</div>
         <div>
-          <b>Rà soát 16/9 &amp; 18/9/2026 — 2 quán đã đóng cửa, nhiều tên không xác minh được:</b>
-          <p><b>Hwangnam Gyeongju Sikdang</b> (tối 19/10, ăn Hanwoo) — <b>đã đóng cửa (폐점)</b>, đổi sang Gyeongju Cheonnyeon Hanwoo chi nhánh Bomun (đã xác minh có thật). <b>Doseolji</b> (trưa 19/10), <b>Bitdani/빛다니</b>, và bản cập nhật của chị Yến sau đó còn thêm <b>Bichkkuli/빛꾸리</b> &amp; <b>Ewharu/이화루</b> (trà chiều 20/10) — tra không ra dấu vết quán nào tên như vậy ở Gyeongju; nhiều khả năng là tên do Gemini "bịa" ra qua các lần soạn lại. Đáng chú ý nhất: bản cập nhật của chị Yến gợi ý quán tối 20/10 là <b>숙영식당</b> — tra ra đây là một quán <b>khác</b> (계림로 60) và <b>đã đóng cửa</b>, dễ nhầm với <b>수경사 (Sugyeongsa)</b> ở 사정로57번길 25 — quán mà lịch này chọn, vẫn đang hoạt động, phục vụ đúng món cơm lá sen. Đã thay các quán không xác minh được bằng phương án đã xác minh là có thật bên dưới — nhưng anh chị nên bấm kiểm tra lại trên Naver Map/Kakao Map 1 lần trước khi đi.</p>
+          <b>Quán ăn đã thay/xác minh (rà soát 16/9 &amp; 18/9)</b>
+          <p><b>Hwangnam Gyeongju Sikdang</b> đã đóng cửa → Gyeongju Cheonnyeon Hanwoo (Bomun). <b>Doseolji</b> không tồn tại → Dosolmaeul (도솔마을). Quán trà Bitdani/Bichkkuli không xác minh được → bỏ. Tối 20/10 là <b>수경사 (Sugyeongsa)</b> — đừng nhầm với 숙영식당 (đã đóng cửa). Nên kiểm tra lại trên Naver Map 1 lần trước khi đi.</p>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="alert warn">
-        <div class="ic">⚠️</div>
-        <div>
-          <b>Mùa này Cheomseongdae/Daereungwon đông hơn bản gốc dự tính:</b>
-          <p>19–20/10 rơi đúng mùa nở của <b>cỏ hồng (핑크뮬리)</b> quanh Cheomseongdae (nở rộ giữa tháng 10 – đầu tháng 11) — khớp với ảnh đẹp nhưng cũng là lúc đông khách chụp ảnh nhất. Ngoài ra, khu Cheomseongdae/Daereungwon vừa được đầu tư <b>chiếu sáng nghệ thuật ban đêm</b> (chiếu projection lên Cheomseongdae, "con đường Ngân Hà" ở Daereungwon) trước thềm APEC 2025 — nên buổi tối giờ đông hơn hẳn so với trước. Điểm tốt: 19–20/10 vẫn <b>trước đỉnh lá đỏ</b> (dự báo đỉnh lá đỏ Gyeongju rơi vào 3–18/11), nên riêng phần ngắm lá phong ở Bulguksa sẽ đỡ đông hơn nhiều so với nếu đi đầu tháng 11. Và cả hai ngày đều là ngày thường (thứ 2, thứ 3) — đỡ hơn cuối tuần đáng kể.</p>
+    <section id="bao-cao">
+      <h2 class="section-title"><span class="dot"></span>Báo cáo &amp; poster</h2>
+      <div class="section-note">CIED06 — Life-Threatening Hemothorax After Pacemaker Implantation: A Rare Injury To An Abnormal Pulmonary Ligament Artery</div>
+      <div class="infogrid">
+        <div class="info-card key">
+          <div class="ic-top">🎤</div>
+          <h4>Vòng sơ khảo — Thứ 4, 21/10</h4>
+          <p><b>14:30–15:45</b> · Convention Hall 1F, <b>Room 12 (110)</b>. Anh báo cáo <b>lượt 3/9</b>, ước tính ~14:44–14:51. 5 phút + 2 phút Q&amp;A, tối đa 7 slide (không tính tiêu đề, cảm ơn). Top 6 vào chung kết.</p>
+          <p>Hạn tải file Preview Room: <b>14:00</b>. Ngồi trong phòng: <b>14:15</b>.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">🏆</div>
+          <h4>Chung kết (nếu vào top 6) — Thứ 6, 23/10</h4>
+          <p><b>11:20–12:35</b> · <b>Exhibition Hall 1F, Room 13</b> (khác toà với Room 12). 9 phút + 2 phút Q&amp;A, tối đa 10 slide. Thứ tự trình bày chưa rõ.</p>
+          <p>Hạn tải file: <b>10:50</b> — làm luôn sau 08:20 ở Preview Room 2.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">💻</div>
+          <h4>Preview Room (bắt buộc)</h4>
+          <p>Tự tải file và kiểm tra tại Preview Room <b>≥30 phút trước giờ bắt đầu phiên</b>. Không nộp trước qua email; <b>không sửa được file</b> sau khi tải.</p>
+          <p><b>21/10:</b> chỉ mở Preview Room 1 — <b>Convention Hall tầng 3</b> (08:00–18:00). <b>23/10:</b> Preview Room 2 — <b>Exhibition Hall tầng 1</b> (07:30–18:00).</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">🔌</div>
+          <h4>Mang file thế nào</h4>
+          <p><b>USB</b> (ban tổ chức khuyến nghị). Laptop riêng vẫn được, nhưng tự mang adapter + sạc, và vẫn nên có USB dự phòng.</p>
+          <p>Bục không có Internet → nhúng sẵn video vào file; chạy thử trên một máy Windows khác.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">🧾</div>
+          <h4>Định dạng slide</h4>
+          <p>Tiếng Anh (cả <b>tên file</b>), khổ <b>16:9</b>, font Windows chuẩn. <b>Bắt buộc slide COI</b> — “No conflicts of interest” nếu không có gì.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">⏱️</div>
+          <h4>Trong phòng báo cáo</h4>
+          <p>Ngồi sẵn <b>≥15 phút trước lượt</b> của mình. Bục có màn hình, chuột, bút laser, đồng hồ. Giờ quản lý rất chặt — <b>quá giờ bị bật nhạc</b>.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-top">🖼️</div>
+          <h4>Poster</h4>
+          <p>Khu poster ở <b>Exhibition Hall</b>. 22/10: dán 13:20–13:50, trưng bày 14:00–17:00, gỡ 17:00–17:30 (PE1). 23/10: dán 08:00–08:20, gỡ 11:30–12:00 (PE2). Băng dính có sẵn.</p>
+          <p>✅ <b>Đồng nghiệp gỡ poster hộ</b> — gửi trước suất poster và số bảng (xem My Page).</p>
         </div>
       </div>
     </section>
@@ -557,7 +596,7 @@
         <div class="hotel-card">
           <span class="tag confirmed">Đã đặt</span>
           <h3>🏨 Sugar Hotel — Gyeongju</h3>
-          <div class="addr">34-1, Taejong-ro 685beon-gil, Gyeongju</div>
+          <div class="addr">34-1, Taejong-ro 685beon-gil, Gyeongju · ĐT 82-54-7438989</div>
           <div class="hotel-meta">
             <div><span>Nhận / trả phòng</span><span>19/10 → 21/10</span></div>
             <div><span>Số đêm</span><span>2 đêm</span></div>
@@ -568,7 +607,7 @@
             <div><span>Tới bến xe khách</span><span>~200m (5 phút đi bộ)</span></div>
             <div><span>Tới Cheomseongdae/Daereungwon</span><span>~1,4–1,6km (15–20 phút)</span></div>
           </div>
-          <div class="hotel-flag">📍 Xa khu di tích hơn một chút so với dự tính ban đầu của chị (Hwangnamguan) — có thể đi bộ hoặc bắt taxi ngắn ~3.000–4.000 KRW cho đỡ mỏi chân.</div>
+          <div class="hotel-flag">📍 Bus 10/11 đi Bulguksa chạy qua khu bến xe → chiều 20/10 xuống bus là về khách sạn được ngay. Tới khu di tích nên bắt taxi ngắn ~3.000–4.000 KRW.</div>
         </div>
         <div class="hotel-card">
           <span class="tag confirmed">Đã đặt · 24/9</span>
@@ -578,14 +617,14 @@
             <div><span>Ở từ / đến</span><span>21/10 → 25/10 (4 đêm)</span></div>
             <div><span>Giờ nhận / trả phòng</span><span>từ 15:00 / trước 11:00</span></div>
             <div><span>Mã đặt phòng · loại phòng</span><span>chưa cập nhật</span></div>
-            <div><span>Bữa sáng</span><span>chưa rõ — thường không kèm (cần kiểm tra)</span></div>
-            <div><span>Ga metro Centum City (tuyến 2)</span><span>lối ra 11 · ~3–7 phút đi bộ</span></div>
-            <div><span>Tới BEXCO</span><span>~10 phút đi bộ (thận trọng)</span></div>
+            <div><span>Bữa sáng</span><span>chưa rõ — thường không kèm</span></div>
+            <div><span>Ga metro Centum City (tuyến 2)</span><span>lối ra 11 · ~3–7 phút</span></div>
+            <div><span>Tới BEXCO</span><span>~10 phút đi bộ</span></div>
             <div><span>Tới Shinsegae · Spa Land</span><span>~4–5 phút đi bộ</span></div>
-            <div><span>Tới Gwangalli · Haeundae Beach</span><span>~2,2 km · ~3 km (taxi 5–10 phút)</span></div>
-            <div><span>Tới sân bay Gimhae</span><span>~21–25 km · taxi ~30–35 phút</span></div>
+            <div><span>Tới Gwangalli · Haeundae Beach</span><span>taxi 5–10 phút</span></div>
+            <div><span>Tới sân bay Gimhae</span><span>taxi ~30–35 phút</span></div>
           </div>
-          <div class="hotel-flag">🛎️ GS25 &amp; emart24 ngay dưới sảnh, gym, giặt xu, bãi xe ngầm. ⚠️ Phòng nhỏ; thang máy chậm giờ cao điểm — trừ hao thời gian cho mốc 08:00 ngày 23/10. Cần hộ chiếu + thẻ tín dụng/tiền mặt đặt cọc khi nhận phòng. Nên nhắn khách sạn trước để xin nhận phòng sớm/gửi hành lý ngày 21/10.</div>
+          <div class="hotel-flag">🛎️ GS25 &amp; emart24 dưới sảnh. ⚠️ Thang máy chậm giờ cao điểm. Cần hộ chiếu + thẻ tín dụng đặt cọc. Nhắn trước xin nhận phòng sớm 21/10 (cần chỗ thay đồ trước giờ báo cáo) và gửi hành lý.</div>
         </div>
       </div>
     </section>
@@ -593,15 +632,16 @@
     <section id="di-chuyen">
       <h2 class="section-title"><span class="dot"></span>Di chuyển Gyeongju ↔ Busan</h2>
       <div class="infogrid">
-        <div class="info-card">
+        <div class="info-card key">
           <div class="ic-top">🚌</div>
-          <h4>Tuyến trực tiếp (khuyên dùng, ngày 21/10)</h4>
-          <p>Gyeongju Intercity Bus Terminal → Busan Haeundae. ~1h17, 10.500 KRW/người, ~15 chuyến/ngày (07:10–21:10). Xuống khu Haeundae, sau đó taxi ~10–15 phút (ước tính) tới Centum Business Hotel để gửi hành lý. Nên mua vé trước tại quầy chiều 20/10.</p>
+          <h4>Gyeongju → Haeundae (21/10)</h4>
+          <p>Xe khách chạy thẳng, ~1h17, 10.500 KRW/người, ~15 chuyến/ngày (07:10–21:10). Xuống khu Haeundae, taxi ~10–15 phút tới khách sạn.</p>
+          <p>🎤 <b>Ưu tiên chuyến ~10:00, muộn nhất ~10:30.</b> Mua vé ~14:00 ngày 20/10 khi xuống bus từ Bulguksa.</p>
         </div>
         <div class="info-card">
           <div class="ic-top">✈️</div>
-          <h4>Tuyến qua sân bay Gimhae (ngày 19/10 tới)</h4>
-          <p>Gimhae Airport → Gyeongju Terminal, ~70 phút, 9.500 KRW/người, ~15 chuyến/ngày. Dùng cho chặng đến vì hạ cánh ngay tại Gimhae.</p>
+          <h4>Gimhae → Gyeongju (19/10)</h4>
+          <p>Gimhae Airport → Gyeongju Terminal, ~70 phút, 9.500 KRW/người. Xe khách liên tỉnh không dùng T-money — mua vé tại quầy/máy.</p>
         </div>
       </div>
     </section>
@@ -609,7 +649,7 @@
     <section id="lich-trinh">
       <h2 class="section-title"><span class="dot"></span>Lịch trình theo ngày</h2>
       <div class="legend">
-        <span><i class="sw" style="background:var(--teal)"></i>Mốc hội nghị bắt buộc</span>
+        <span><i class="sw" style="background:var(--teal)"></i>Mốc hội nghị / báo cáo bắt buộc</span>
         <span><i class="sw" style="background:var(--gold)"></i>Hard Pause — nghỉ ngơi có chủ đích</span>
         <span><i class="sw" style="background:var(--terracotta)"></i>Du lịch / di chuyển</span>
       </div>
@@ -617,27 +657,29 @@
     </section>
 
     <section id="trang-phuc">
-      <h2 class="section-title"><span class="dot"></span>Trang phục theo vùng</h2>
+      <h2 class="section-title"><span class="dot"></span>Trang phục (Lookbook của chị)</h2>
+      <div class="section-note">Trang phục chi tiết từng buổi nằm trong khung 👗 của mỗi ngày.</div>
       <div class="infogrid">
         <div class="info-card">
-          <div class="ic-top">🍂</div>
-          <h4>Gyeongju — tông thu / Hanok</h4>
-          <p>Áo len mỏng kem/be/nâu camel, blazer dạ hoặc măng tô nhẹ, quần suông/chân váy midi dày dặn — hợp nền lá phong đỏ, bạch quả vàng, tường gạch cổ.</p>
+          <div class="ic-top">👜</div>
+          <h4>Capsule của chị</h4>
+          <p>Măng tô hồng pastel dáng dài, blazer be kaki · Mary Jane đen, sneaker trắng · beret kaki, khăn lụa, túi tote-balo da nâu · gile lông kem · đầm len đen cổ tim, váy len xám · sơ mi lụa hồng đất, len tăm đen, len cổ lọ yến mạch, giữ nhiệt nude · jean ống rộng, chân váy satin vàng kim sa, chân váy denim · tất dưới gối đen/be, tất bèo trắng, quần tất lưới.</p>
         </div>
         <div class="info-card">
-          <div class="ic-top">🌊</div>
-          <h4>Busan — biển &amp; làng dốc</h4>
-          <p>Tông tương phản: trắng, xanh navy, denim dày hoặc da mềm. Vùng Gijang gió rất mạnh — cần áo khoác cản gió, khăn choàng dày, giày đế bám tốt.</p>
+          <div class="ic-top">🧭</div>
+          <h4>Nguyên tắc</h4>
+          <p>Ngày đi bộ nhiều/bậc đá/dốc/sàn ướt (20/10 sáng, 21–23/10) → <b>sneaker + jean</b>. Tối ngoài trời (19, 21, 24/10) → <b>mặc hẳn măng tô</b> + 1 miếng Kairo. Chỉ thay đồ khi có ghé khách sạn sẵn trong lịch. Mặc măng tô lên máy bay cho nhẹ vali.</p>
         </div>
         <div class="info-card">
-          <div class="ic-top">👟</div>
-          <h4>Giày</h4>
-          <p>Sneaker êm hoặc giày bệt da mềm — đi bộ khoảng 5–7km/ngày. Ngày Gamcheon (23/10) cần đế bám tốt vì dốc cao.</p>
+          <div class="ic-top">👔</div>
+          <h4>Đồ của anh</h4>
+          <p>Tông navy/đen/xám/camel/trắng, lặp 1 màu từ set của chị. Gợi ý: 1 bộ vest · 1 blazer navy · 1 áo dạ camel · 2–3 sơ mi · 3 áo len (cổ lọ đen, navy, kem/xám) · 1 jean tối · 2 kaki/quần âu · sneaker trắng + giày da đế cao su · khăn quàng.</p>
+          <p>🎤 Đồ báo cáo: 21/10 vest · 22/10 blazer navy + giày đế cao su · 23/10 (nếu chung kết) vest hoặc blazer + sơ mi trắng.</p>
         </div>
         <div class="info-card">
-          <div class="ic-top">🌅</div>
-          <h4>Sky Capsule & tối Gwangalli (24/10)</h4>
-          <p>Chiều tối biển lạnh hơn ban ngày — mang thêm áo khoác nhẹ để ngồi Sky Capsule và đứng xem drone show ngoài bãi biển không bị lạnh.</p>
+          <div class="ic-top">💡</div>
+          <h4>Lưu ý thực tế</h4>
+          <p>Quán nướng 19/10: xin túi trùm áo để khỏi ám mùi khói. Gijang 22/10: gió mạnh, bậc đá trơn → sneaker, khăn, beret. Kairo mua ở GS25/CU sân bay ngày đầu.</p>
         </div>
       </div>
     </section>
@@ -646,6 +688,22 @@
       <h2 class="section-title"><span class="dot"></span>Chuẩn bị trước chuyến đi</h2>
       <div class="section-note">Tick vào từng ô khi đã chuẩn bị xong — trạng thái sẽ được nhớ lại ở lần mở sau.</div>
       <div class="infogrid">
+        <label class="info-card check-card">
+          <input type="checkbox" class="prep-check" data-key="slides">
+          <div class="check-body">
+            <div class="ic-top">🎤</div>
+            <h4>Slide báo cáo (USB)</h4>
+            <p>Bản sơ khảo (≤7 slide) + bản chung kết (≤10 slide) trên USB, kèm dự phòng cloud/laptop. Soát: slide COI, khổ 16:9, tên file tiếng Anh, video nhúng sẵn, đã chạy thử trên máy Windows khác.</p>
+          </div>
+        </label>
+        <label class="info-card check-card">
+          <input type="checkbox" class="prep-check" data-key="poster">
+          <div class="check-body">
+            <div class="ic-top">🖼️</div>
+            <h4>Poster &amp; nhờ gỡ hộ</h4>
+            <p>Xem suất poster và số bảng trong My Page (web/app APHRS 2026); gửi đồng nghiệp để gỡ hộ (22/10 17:00–17:30; 23/10 11:30–12:00).</p>
+          </div>
+        </label>
         <label class="info-card check-card">
           <input type="checkbox" class="prep-check" data-key="esim">
           <div class="check-body">
@@ -659,15 +717,15 @@
           <div class="check-body">
             <div class="ic-top">🗺️</div>
             <h4>Bản đồ</h4>
-            <p>Google Maps hạn chế ở Hàn Quốc — dùng Naver Map hoặc Kakao Map. Thêm Papago để dịch.</p>
+            <p>Dùng Naver Map hoặc Kakao Map (Google Maps hạn chế ở Hàn Quốc). Thêm Papago để dịch.</p>
           </div>
         </label>
         <label class="info-card check-card">
           <input type="checkbox" class="prep-check" data-key="tmoney">
           <div class="check-body">
             <div class="ic-top">💳</div>
-            <h4>Thẻ T-money/WOWPASS</h4>
-            <p>Mua 2 thẻ tại GS25/CU sân bay Gimhae, nạp sẵn ~30.000 KRW/thẻ. Xe khách liên tỉnh không dùng được T-money.</p>
+            <h4>Thẻ T-money/WOWPASS + Kairo</h4>
+            <p>Mua 2 thẻ tại GS25/CU sân bay Gimhae, nạp ~30.000 KRW/thẻ. Mua luôn 1 bịch Kairo 5–10 miếng.</p>
           </div>
         </label>
         <label class="info-card check-card">
@@ -675,15 +733,7 @@
           <div class="check-body">
             <div class="ic-top">🚕</div>
             <h4>Gọi taxi</h4>
-            <p>Kakao T là lựa chọn chính — chọn "Pay to Driver" để tránh lỗi thẻ quốc tế.</p>
-          </div>
-        </label>
-        <label class="info-card check-card">
-          <input type="checkbox" class="prep-check" data-key="weather">
-          <div class="check-body">
-            <div class="ic-top">🌤️</div>
-            <h4>Thời tiết</h4>
-            <p>9–20°C. Sáng sớm/đêm lạnh se buốt kèm gió biển, ban ngày nắng dịu.</p>
+            <p>Kakao T là lựa chọn chính — chọn “Pay to Driver” để tránh lỗi thẻ quốc tế. Dự phòng: k.ride.</p>
           </div>
         </label>
         <label class="info-card check-card">
@@ -699,15 +749,23 @@
           <div class="check-body">
             <div class="ic-top">🔌</div>
             <h4>Adapter chuyển chân cắm</h4>
-            <p>Hàn Quốc dùng ổ cắm chân tròn kiểu C/F (220V, 60Hz); Việt Nam phổ biến ổ chân dẹt kiểu A (220V, 50Hz) nên không phải lúc nào cũng cắm vừa — nên mang theo 1–2 adapter chuyển đổi (hoặc adapter đa năng du lịch) cho sạc điện thoại/laptop, phòng khi thiết bị chỉ có chân dẹt.</p>
+            <p>Hàn Quốc dùng ổ chân tròn C/F (220V, 60Hz) — mang 1–2 adapter cho sạc điện thoại/laptop.</p>
           </div>
         </label>
         <label class="info-card check-card">
           <input type="checkbox" class="prep-check" data-key="dayBag">
           <div class="check-body">
             <div class="ic-top">🎒</div>
-            <h4>Túi xách tay cho chiều 21/10</h4>
-            <p>Chiều 21/10 vali sẽ gửi ở khách sạn Busan (chưa nhận phòng được ngay) — soạn sẵn một túi nhỏ có đồ mặc đi hội nghị, thẻ đăng ký APHRS, hộ chiếu và thẻ tín dụng đặt cọc phòng.</p>
+            <h4>Túi xách tay cho 21/10</h4>
+            <p>Vali gửi ở khách sạn Busan tới khi nhận phòng — soạn từ tối 20/10: đồ báo cáo, USB slide, thẻ đăng ký APHRS, hộ chiếu, thẻ tín dụng đặt cọc.</p>
+          </div>
+        </label>
+        <label class="info-card check-card">
+          <input type="checkbox" class="prep-check" data-key="weather">
+          <div class="check-body">
+            <div class="ic-top">🌤️</div>
+            <h4>Thời tiết</h4>
+            <p>9–20°C. Sáng sớm/đêm lạnh se buốt kèm gió biển; Gyeongju đêm ~8–10°C. Mặc nhiều lớp.</p>
           </div>
         </label>
       </div>
@@ -719,22 +777,22 @@
         <div class="info-card">
           <div class="ic-top">🎁</div>
           <h4>Quà tặng đặc trưng</h4>
-          <p>Bánh đậu đỏ Hwangnam-ppang (Gyeongju, từ 1939); chả cá Samjin Amook (ga Busan/sân bay); rong biển muối mè Gijang.</p>
+          <p>Bánh đậu đỏ Hwangnam-ppang (Gyeongju); chả cá Samjin Amook (ga Busan/sân bay, hút chân không); rong biển muối mè Gijang.</p>
         </div>
         <div class="info-card">
           <div class="ic-top">💄</div>
           <h4>Dược mỹ phẩm</h4>
-          <p>Olive Young Centum City/Nampo — Torriden, Round Lab, d'Alba, Aestura, thường có set 1+1. Khu Centum City ngay gần khách sạn — tiện ghé chiều 21/10 hoặc tối 22/10.</p>
+          <p>Olive Young Centum City/Nampo — Torriden, Round Lab, d'Alba, Aestura, thường có set 1+1. Tiện ghé chiều 21/10 hoặc tối 22/10.</p>
         </div>
         <div class="info-card">
           <div class="ic-top">🌿</div>
           <h4>Hồng sâm</h4>
-          <p>Mua tại quầy miễn thuế sân bay Gimhae (KGC Cheong Kwan Jang) — chắc nguồn gốc, miễn thuế trực tiếp.</p>
+          <p>Quầy miễn thuế sân bay Gimhae (KGC Cheong Kwan Jang) — chắc nguồn gốc, miễn thuế trực tiếp.</p>
         </div>
         <div class="info-card">
           <div class="ic-top">🏺</div>
           <h4>Đồ thủ công</h4>
-          <p>Gốm men tro, đồ gỗ nhỏ (thìa, khay trà) tại các xưởng thủ công ở Gyeongju.</p>
+          <p>Gốm men tro, đồ gỗ nhỏ (thìa, khay trà) tại các xưởng ở Gyeongju.</p>
         </div>
       </div>
     </section>
@@ -746,11 +804,12 @@
         <tr><th>Hạng mục</th><th>Mua khi nào</th><th>Ở đâu</th></tr>
         <tr><td>eSIM / SIM 4G</td><td>Trước chuyến đi</td><td>Klook / Airalo / Gohub</td></tr>
         <tr><td>Vé xe Gimhae → Gyeongju</td><td>Tại chỗ khi hạ cánh</td><td>Quầy/máy sảnh đến Gimhae</td></tr>
-        <tr><td>Vé xe Gyeongju → Haeundae</td><td>Chiều 20/10</td><td>Quầy vé Bến xe Gyeongju</td></tr>
-        <tr><td>Thẻ T-money/WOWPASS (2 thẻ)</td><td>Tại sân bay Gimhae</td><td>GS25/CU sảnh đến</td></tr>
-        <tr><td>Vé Cheonmachong, Hồ Wolji</td><td>Tại cổng</td><td>Máy bán vé tự động</td></tr>
-        <tr><td>✅ Vé Sky Capsule (Haeundae Blueline Park) — khoang 2 người, khung 16:30 ngày 24/10</td><td><b>Đã đặt 22/9/2026</b> — mã RS26017333372</td><td>bluelinepark.com (đã thanh toán 50.000 KRW)</td></tr>
-        <tr><td>✅ Khách sạn Busan — Centum Business Hotel (21–25/10)</td><td><b>Đã đặt (24/9/2026)</b> — mã đặt phòng: chưa cập nhật</td><td>17 Centum 1-ro, Haeundae-gu (cạnh ga Centum City, lối ra 11)</td></tr>
+        <tr><td>Vé xe Gyeongju → Haeundae (chuyến ~10:00, muộn nhất 10:30 ngày 21/10)</td><td>~14:00 ngày 20/10</td><td>Quầy vé Bến xe Gyeongju</td></tr>
+        <tr><td>Thẻ T-money/WOWPASS (2 thẻ) + Kairo</td><td>Tại sân bay Gimhae</td><td>GS25/CU sảnh đến</td></tr>
+        <tr><td>Vé Cheonmachong, Hồ Wolji</td><td>Tại cổng</td><td>Máy bán vé tự động (Bulguksa miễn phí vào)</td></tr>
+        <tr><td>✅ Vé Sky Capsule — khoang 2 người, 16:30 ngày 24/10</td><td><b>Đã đặt 22/9/2026</b> — RS26017333372</td><td>bluelinepark.com (đã thanh toán 50.000 KRW)</td></tr>
+        <tr><td>✅ Khách sạn Busan — Centum Business Hotel (21–25/10)</td><td><b>Đã đặt 24/9/2026</b> — mã: chưa cập nhật</td><td>17 Centum 1-ro, Haeundae-gu</td></tr>
+        <tr><td>✅ Slide CIED06 — sơ khảo + chung kết</td><td><b>Đã xong 17/10/2026</b></td><td>USB + cloud + laptop</td></tr>
       </table>
       </div>
     </section>
@@ -762,7 +821,7 @@
 
   </main>
 
-  <footer>Lịch trình hợp nhất từ bản logistics + bản chị Yến soạn (Gemini) — đã rà soát và cập nhật quán ăn/mức độ đông đúc ngày 16/9/2026, cập nhật quyết định giữ Tour 1 ngày 16/9/2026, chốt lại toàn bộ 22–24/10 ngày 18/9/2026, xác nhận đặt vé Sky Capsule thành công ngày 22/9/2026 và chốt khách sạn Busan (Centum Business Hotel) ngày 24/9/2026 — có thể còn thay đổi khi bổ sung mã đặt phòng &amp; giờ xe khách chính xác gần ngày đi.</footer>
+  <footer>Lịch trình hợp nhất từ bản logistics + bản chị Yến soạn — cập nhật lần cuối 17/10/2026 (phiên báo cáo Best of the Best, thủ tục Preview Room, Lookbook trang phục). Có thể còn thay đổi theo kết quả vòng sơ khảo và giờ xe khách thực tế.</footer>
 </div>
 </div>
 
@@ -782,17 +841,23 @@ const days = [
     flags:["✈️ Bay đêm 18/10"],
     items:[
       {t:"01:05 (18/10)", d:"Khởi hành VJ982 từ Hà Nội."},
-      {t:"07:10", d:"Hạ cánh Gimhae. Nhập cảnh, lấy hành lý, mua T-money tại GS25 sảnh đến."},
-      {t:"~08:00–08:50", d:"Xe khách liên tỉnh Gimhae → Gyeongju (~70 phút, 9.500 KRW/người)."},
-      {t:"~09:00–10:00", d:"Tới bến xe Gyeongju, đi bộ ~5 phút (200m) tới <b>Sugar Hotel</b>, gửi hành lý."},
-      {t:"Trưa", d:"Ăn tại <b>Dosolmaeul (도솔마을)</b> — quán hanjeongsik (cơm phần kiểu Hàn) trong khu Hwangnam-dong, gần Hwangridan-gil.", alt:"⚠️ Đã đổi từ \"Doseolji\" — không tìm thấy quán này. Dosolmaeul là quán thật, có tiếng, đông vào giờ trưa cao điểm.", crowd:"Dự phòng: nếu đông/hết bàn, khu Hwangnam-dong có hàng chục quán hanjeongsik/cơm phần khác trong bán kính 5 phút đi bộ — mở Naver Map tìm quán gần nhất còn bàn trống."},
-      {t:"Đầu chiều", d:"<b>Hard Pause</b> — nếu được nhận phòng sớm thì nghỉ trong phòng, không thì tìm quán cà phê yên tĩnh nghỉ chân ~1–1,5 tiếng.", cls:"pause"},
-      {t:"15:00", d:"Nhận phòng chính thức tại Sugar Hotel."},
-      {t:"15:45–17:15", d:"Gò lăng <b>Daereungwon</b> &amp; lăng Cheonmachong, ghé đồng cỏ hồng Pink Muhly cạnh Cheomseongdae (đi bộ ~15–20 phút từ khách sạn, hoặc taxi ~4.000 KRW).", crowd:"⚠️ Đúng mùa cỏ hồng nở rộ (giữa 10 – đầu 11) + giờ vàng chụp ảnh (~16h30–17h) — khu này rất đông. Dự phòng: nếu Cheomseongdae quá đông, cánh đồng cỏ hồng ở Công viên Gyeongju World Culture Expo Park (khu Bomun, rộng hơn nhiều, ít khách hơn) là lựa chọn thay thế — nhưng cách xa hơn, cần taxi."},
-      {t:"17:30–19:00", d:"Dạ cảnh <b>Donggung Palace &amp; Hồ Wolji (Anapji)</b> lúc lên đèn.", crowd:"⚠️ Đây là điểm chụp ảnh đêm nổi tiếng bậc nhất Hàn Quốc, gần như luôn đông — góc \"phản chiếu\" kinh điển ở góc Tây Bắc hồ càng đông nghẹt lúc chập tối. Nên tới sát giờ mở đèn (thường ngay khi trời sập tối) hoặc đợi tới sau 19h30 khi đoàn khách tour giảm bớt để đỡ chen chúc; ảnh vẫn đẹp ở các góc hồ phía Đông ít người biết hơn."},
-      {t:"19:30–21:00", d:"Tối tại <b>Gyeongju Cheonnyeon Hanwoo (경주천년한우)</b> chi nhánh Bomun (~15–20 phút taxi) — quán Hanwoo nướng than hoa thượng hạng, đã xác minh có thật.", alt:"🚨 Quán gốc \"Hwangnam Gyeongju Sikdang\" đã đóng cửa (폐점) — không nên tới."}
+      {t:"07:10", d:"Hạ cánh Gimhae. Nhập cảnh, lấy hành lý, mua T-money + <b>Kairo</b> tại GS25 sảnh đến."},
+      {t:"~08:00–08:50", d:"Xe khách liên tỉnh Gimhae → Gyeongju (~70 phút, 9.500 KRW/người) — chợp mắt bù sức."},
+      {t:"~09:00–10:00", d:"Tới bến xe Gyeongju, đi bộ ~5 phút tới <b>Sugar Hotel</b>, gửi hành lý."},
+      {t:"Trưa", d:"Ăn tại <b>Dosolmaeul (도솔마을)</b> — quán hanjeongsik khu Hwangnam-dong, gần Hwangridan-gil.", crowd:"Đông giờ trưa — nếu hết bàn, khu Hwangnam-dong có nhiều quán cơm phần khác trong bán kính 5 phút đi bộ."},
+      {t:"Đầu chiều", d:"<b>Hard Pause</b> — được nhận phòng sớm thì ngủ bù; không thì nghỉ ở quán cà phê yên tĩnh ~1–1,5 tiếng.", cls:"pause"},
+      {t:"15:00", d:"Nhận phòng chính thức tại Sugar Hotel, nghỉ ngơi."},
+      {t:"15:45–17:15", d:"Gò lăng <b>Daereungwon</b> & lăng Cheonmachong (~3.000 KRW), <b>đồng cỏ hồng</b> cạnh Cheomseongdae lúc nắng chiều (taxi ~4.000 KRW).", crowd:"⚠️ Mùa cỏ hồng + giờ vàng → rất đông. Dự phòng: Gyeongju World Culture Expo Park (khu Bomun)."},
+      {t:"17:15–17:45", d:"Taxi về khách sạn (~5 phút) <b>thay set buổi tối</b>, rồi taxi ra Hồ Wolji."},
+      {t:"17:45–19:15", d:"Dạ cảnh <b>Donggung Palace & Hồ Wolji (Anapji)</b> lúc lên đèn (~3.000 KRW; mặt trời lặn ~17:45).", crowd:"⚠️ Điểm chụp đêm đông bậc nhất Hàn Quốc — góc hồ phía Đông vắng hơn góc phản chiếu phía Tây Bắc."},
+      {t:"19:30–21:00", d:"Tối tại <b>Gyeongju Cheonnyeon Hanwoo (경주천년한우)</b> chi nhánh Bomun (~15–20 phút taxi) — Hanwoo nướng, nên đặt trước.", alt:"🚨 Quán gốc Hwangnam Gyeongju Sikdang đã đóng cửa — không tới."}
     ],
-    note:"Khoảng cách đi bộ tới Cheomseongdae/Daereungwon xa hơn dự tính ban đầu (Sugar Hotel ở gần bến xe hơn là giữa phố cổ) — cân nhắc taxi ngắn nếu đã mệt."
+    outfit:[
+      ["Chị — ban ngày (Set 1A)", "sơ mi lụa hồng đất nơ cổ + jean ống rộng + măng tô hồng (mặc từ trên máy bay) + sneaker trắng + tất bèo trắng + beret + túi da nâu."],
+      ["Chị — tối (Set 1B, thay lúc 17:15)", "len tăm đen + chân váy satin vàng kim sa + gile lông kem + <b>măng tô hồng khoác ngoài</b> (đêm ~8–10°C) + Mary Jane + tất lửng đen + khăn lụa. Vào quán nướng xin túi trùm áo."],
+      ["Anh", "ngày — len mỏng xám nhạt/trắng + jean tối + áo khoác navy + sneaker trắng. Tối — len cổ lọ đen + quần âu xám than + áo dạ camel + giày da."]
+    ],
+    note:"Sugar Hotel cách khu di tích ~1,4–1,6km — bắt taxi ngắn nếu đã mệt sau chuyến bay đêm."
   },
   {
     date:"20/10", dow:"Thứ 3", mon:"Th10", num:"20",
@@ -800,85 +865,128 @@ const days = [
     title:"Bulguksa, làng cổ Gyochon, cầu Woljeonggyo",
     flags:["🐢 Ngày trọn vẹn"],
     items:[
-      {t:"08:00–09:00", d:"Nếu chưa ngắm hôm qua: ra lại đồng cỏ hồng/Cheomseongdae lúc sáng sớm vắng người."},
-      {t:"09:00–10:00", d:"Bus số 10/11 (T-money, ~1.500 KRW) ra chùa <b>Bulguksa</b>.", crowd:"Bulguksa rất rộng nên hiếm khi \"quá tải\", nhưng bãi đỗ/xe shuttle có thể xếp hàng vào cuối tuần. May là 20/10 là thứ 3 — nên đi trước 10h vẫn khá thoáng."},
-      {t:"10:00–12:15", d:"Tham quan Bulguksa (UNESCO) — Tháp Đa Bảo, cầu Thanh Vân-Bạch Vân."},
-      {t:"12:15–13:30", d:"Trưa chân núi Tohamsan — cơm niêu hạt sen hoặc canh đậu hũ non."},
-      {t:"14:00–15:30", d:"Làng cổ <b>Gyochon</b> &amp; nhà cổ họ Choe; kimbap tại <b>Gyori Gimbap (교리김밥)</b>.", crowd:"Quán có thật và khá nổi tiếng — chi nhánh gần Hwangridan-gil hay đông, có lúc phải chờ. Vì là quán ăn nhanh nên rủi ro thấp: có thể mua mang đi (포장) để khỏi chờ bàn.", alt:"Dự phòng: chi nhánh Bonghwangdae (봉황대점) gần làng cổ Gyochon hơn chi nhánh chính; nếu cả hai đông, khu này có nhiều quán kimbap/mì khác lân cận."},
-      {t:"15:30–16:45", d:"<b>Hard Pause</b> — quán trà mộc gần ngõ Poseok-ro (gợi ý: Cafe Poseokjeong hoặc một quán trà truyền thống khác trong khu này). Cất điện thoại ~45 phút.", cls:"pause", alt:"⚠️ Đã bỏ tên \"Bitdani (빛다니)\" — không xác minh được quán này có tồn tại ở Gyeongju. Nên chọn tại chỗ 1 quán trà/cà phê hanok yên tĩnh quanh khu Poseok-ro/Hwangridan-gil qua Naver Map khi tới nơi."},
-      {t:"17:00–18:15", d:"Hoàng hôn ở <b>cầu gỗ Woljeonggyo</b> ven suối Namcheon."},
-      {t:"Trên đường về", d:"Ghé Bến xe Gyeongju (gần khách sạn) <b>mua trước vé xe khách trực tiếp đi Haeundae</b> cho sáng mai — nên chọn chuyến ~09:30–10:00."},
-      {t:"18:30–20:00", d:"Tối tại <b>수경사 (Sugyeongsa)</b>, 사정로57번길 25 — cơm lá sen kiểu hanok, mua bánh Hwangnam-ppang làm quà.", crowd:"Quán có thật, chất lượng tốt (4.4/5) nhưng hay chờ ~20 phút, đặc biệt buổi tối. Nên tới sát giờ mở cửa tối hoặc trước 19h để giảm chờ.", alt:"⚠️ Đừng nhầm với \"숙영식당\" (계림로 60) — tên gần giống nhưng là quán khác và đã đóng cửa (폐점). Dự phòng nếu 수경사 hết bàn: quán 하연지 (Hayeonji) gần khu vực."},
-      {t:"Tối", d:"🆕 Soạn sẵn <b>một túi xách tay nhỏ</b> có đồ mặc đi hội nghị chiều 21/10 (trang phục chỉn chu, thẻ đăng ký APHRS, hộ chiếu, thẻ tín dụng) — vì chiều mai chưa nhận phòng ở Busan được ngay, vali sẽ gửi ở khách sạn."}
+      {t:"08:00–09:00", d:"Ăn sáng tại khách sạn. (Buổi dạo cỏ hồng sáng sớm dời sang sáng 21/10.)"},
+      {t:"09:00–10:00", d:"Bus số 10/11 (T-money, ~1.500 KRW) ra chùa <b>Bulguksa</b> (UNESCO). Thứ 3, chưa vào đỉnh lá đỏ nên khá thoáng."},
+      {t:"10:00–12:15", d:"Tham quan Bulguksa — Tháp Đa Bảo, cầu Thanh Vân-Bạch Vân, tản bộ dưới tán phong."},
+      {t:"12:15–13:15", d:"Trưa chân núi Tohamsan — cơm niêu hạt sen hoặc canh đậu hũ non niêu đất."},
+      {t:"13:15–14:00", d:"Bus 10/11 về, <b>xuống ở Bến xe liên tỉnh</b>. 🎤 <b>Mua luôn vé xe khách đi Haeundae sáng mai — ưu tiên chuyến ~10:00, muộn nhất ~10:30.</b>"},
+      {t:"14:00–15:15", d:"<b>Hard Pause tại khách sạn</b> (200m từ bến) — nghỉ ngơi và <b>thay set chiều-tối</b>.", cls:"pause"},
+      {t:"15:15–15:30", d:"Taxi ~5 phút ra làng Gyochon."},
+      {t:"15:30–16:50", d:"<b>Làng cổ Gyochon</b> & nhà cổ họ Choe; kimbap trứng <b>Gyori Gimbap (교리김밥)</b>.", crowd:"Hay đông — mua mang đi (포장), hoặc thử chi nhánh Bonghwangdae gần Gyochon hơn. Muốn uống trà thì ghé 1 quán trà hanok trong làng ~30 phút (chọn tại chỗ)."},
+      {t:"17:00–18:15", d:"<b>Cầu gỗ Woljeonggyo</b> ngay cạnh Gyochon — hoàng hôn ~17:45, sau đó cầu lên đèn."},
+      {t:"18:30–20:00", d:"Tối tại <b>수경사 (Sugyeongsa)</b>, 사정로57번길 25 — cơm gói lá sen, cá nướng than, cách cầu ~1km. Mua bánh Hwangnam-ppang làm quà. Taxi về khách sạn.", crowd:"Hay chờ ~20 phút — tới sát giờ mở cửa tối.", alt:"Đừng nhầm với 숙영식당 (đã đóng cửa). Dự phòng: 하연지 (Hayeonji)."},
+      {t:"Tối", d:"Soạn <b>túi xách tay cho 21/10</b>: đồ báo cáo, USB slide, thẻ đăng ký APHRS, hộ chiếu, thẻ tín dụng. Đóng gói vali luôn. 🎤 Tập bài 5 phút 1–2 lượt, bấm giờ."}
     ],
-    warn:"Tùy chọn: nếu muốn thêm Seokguram Grotto (UNESCO, cách Bulguksa ~15–20 phút xe), cần thêm ~1 tiếng cho lịch sáng nay — cân nhắc theo sức."
+    outfit:[
+      ["Chị — sáng Bulguksa (Set 2A)", "giữ nhiệt nude + len cổ lọ yến mạch + jean ống rộng + blazer be + sneaker trắng + tất be + beret."],
+      ["Chị — chiều → tối (1 set từ 14:00)", "đầm len đen cổ tim + <b>blazer be</b> + tất len tăm đen dưới gối + <b>Mary Jane</b> (Gyochon/Woljeonggyo đường bằng) + beret + khăn lụa thắt nơ + túi da nâu đeo kiểu balo. <b>Hoàng hôn (~17:30)</b>: khoác thêm gile lông kem ngoài blazer (lấy từ túi); lạnh thì quấn khăn cao + Kairo. Không dùng măng tô tối nay (dài, không gấp vào túi được)."],
+      ["Anh", "sáng — len navy + kaki be + sneaker trắng. Chiều-tối (thay lúc 14:00) — len cổ lọ đen/xám than + quần âu xám + áo dạ camel + giày da đế mềm; tối quấn khăn."]
+    ],
+    warn:"Tùy chọn Seokguram Grotto (UNESCO, gần Bulguksa) cần thêm ~1 tiếng — nếu đi thì lùi các mốc chiều tương ứng."
   },
   {
     date:"21/10", dow:"Thứ 4", mon:"Th10", num:"21",
     color: COLORS.conf,
-    title:"Sáng thong thả về Busan · Chiều: hội nghị",
-    flags:["✅ Sáng KHÔNG bắt buộc","🚌 Xe khách thẳng","🏛️ Hội nghị bắt buộc (chiều)"],
+    title:"Sáng dạo cỏ hồng · Về Busan · Báo cáo Best of the Best",
+    flags:["🎤 Sơ khảo 14:30 — bắt buộc","🚌 Xe khách ~10:00"],
     items:[
-      {t:"Sáng", d:"Ăn sáng tại khách sạn, thong thả — <b>sáng nay không bắt buộc dự hội nghị.</b>", cls:"mandatory"},
-      {t:"Trước 12:00", d:"Trả phòng Sugar Hotel, đi bộ ~5 phút ra bến xe."},
-      {t:"~09:30–10:00", d:"Lên xe khách liên tỉnh trực tiếp <b>Gyeongju → Busan Haeundae</b> (~1h17, 10.500 KRW/người)."},
-      {t:"~10:45–11:15", d:"Tới Haeundae."},
-      {t:"~11:30–12:00", d:"🆕 Taxi (~10–15 phút) về <b>Centum Business Hotel — gửi hành lý ở quầy lễ tân</b>. Nhận phòng chính thức chỉ từ <b>15:00</b> nên khó vào phòng ngay lúc này.", alt:"Nhắn trước cho khách sạn (qua app đã đặt hoặc email) để xin nhận phòng sớm và xác nhận được gửi hành lý — phòng sẵn thì vào sớm; nếu không cũng không phải kéo vali đi ăn/đi hội nghị. Lấy túi xách tay (đồ hội nghị + giấy tờ) ra trước khi gửi vali."},
-      {t:"Trưa", d:"Ăn trưa gần Centum City (khu ẩm thực Shinsegae Centum City hoặc quán quanh khách sạn, đi bộ vài phút).", crowd:"Đã đổi từ Gukbap khu chợ Haeundae — với vali trên tay và chưa nhận phòng được thì bất tiện; Gukbap có thể để dịp khác (chợ Haeundae cách Centum City taxi ~10 phút)."},
-      {t:"Chiều", d:"<b>Anh có mặt tại BEXCO — phiên hội nghị bắt buộc</b> (khách sạn cách BEXCO ~10 phút đi bộ).", cls:"mandatory"},
-      {t:"~15:00 trở đi", d:"Chị nhận phòng (mang hộ chiếu + thẻ tín dụng đặt cọc), nghỉ ngơi/sắp xếp đồ, hoặc đi mua sắm tại <b>Shinsegae Centum City</b> (có thể ghé thêm Lotte Department Store Centum City đối diện) — cửa hàng mở tới khoảng 20:00 nên không cần vội."},
-      {t:"Tối", d:"Dạo biển <b>Gwangalli</b> (taxi ~5–10 phút từ khách sạn), ngắm cầu Gwangan lên đèn, ăn tối hải sản (giờ hẹn tuỳ lúc anh xong việc ở BEXCO)."}
+      {t:"07:00–07:40", d:"Ăn sáng tại khách sạn (đã bao gồm); vali đã đóng gói."},
+      {t:"07:45", d:"Taxi (~5 phút, ~4.000 KRW) ra khu Cheomseongdae."},
+      {t:"08:00–09:15", d:"Tản bộ <b>cỏ hồng cạnh Cheomseongdae</b> + gò lăng lúc sáng sớm vắng người (cổng Daereungwon mở từ 9:00).", alt:"Nếu đi chuyến xe 10:00: rút buổi dạo còn 08:00–08:50, trả phòng ~09:20."},
+      {t:"09:15–09:45", d:"Taxi về khách sạn, <b>trả phòng Sugar Hotel</b>, đi bộ 5 phút ra bến xe."},
+      {t:"~10:00 (muộn nhất ~10:30)", d:"<b>Xe khách Gyeongju → Busan Haeundae</b> (~1h17, 10.500 KRW/người). 🎤 Không lấy chuyến muộn hơn 10:30."},
+      {t:"~11:20–12:10", d:"Tới Haeundae → taxi (~10–15 phút) về <b>Centum Business Hotel — gửi hành lý</b>, xin nhận phòng sớm. Lấy túi xách tay ra trước khi gửi vali."},
+      {t:"12:15–12:50", d:"Ăn trưa <b>nhẹ</b> gần Centum City (food hall Shinsegae hoặc quán quanh khách sạn) — tránh món nặng/cay."},
+      {t:"12:50–13:15", d:"Anh thay đồ báo cáo (phòng nếu được nhận sớm; không thì nhà vệ sinh Shinsegae/BEXCO). Đi bộ ~10 phút sang BEXCO."},
+      {t:"~13:25", d:"Tới BEXCO, nhận <b>thẻ đăng ký (badge)</b> cho cả hai — lần đầu tới hội nghị, có thể phải xếp hàng."},
+      {t:"Trước 14:00", d:"🎤 <b>Preview Room 1 — Convention Hall tầng 3</b>: cắm USB, tải file, chạy thử. <b>14:00 là hạn chót.</b>", cls:"mandatory", alt:"21/10 chỉ mở Preview Room 1 (Preview Room 2 không hoạt động). Không sửa được file sau khi tải."},
+      {t:"14:00–14:15", d:"Xuống tầng 1, tìm <b>Room 12 (110)</b>."},
+      {t:"14:15", d:"<b>Hai vợ chồng ngồi sẵn trong Room 12</b>, báo với điều phối viên phiên.", cls:"mandatory"},
+      {t:"14:30–15:45", d:"🎤 <b>CIED Preliminary 1 — anh báo cáo lượt thứ 3</b> (~14:44–14:51), 5 phút + 2 phút Q&A. Ngồi tới hết phiên.", cls:"mandatory", crowd:"Giờ quản lý rất chặt — quá giờ bị bật nhạc. Chị nghe xong lượt của anh có thể ở lại hoặc sang Shinsegae trước."},
+      {t:"15:45–16:15", d:"Về khách sạn, <b>nhận phòng</b> (hộ chiếu + thẻ tín dụng đặt cọc)."},
+      {t:"16:15–17:45", d:"<b>Hard Pause</b> — nghỉ ngơi; chị dạo Shinsegae Centum City/Olive Young rồi thay set tối. Kiểm tra email/app APHRS xem có kết quả sơ khảo chưa.", cls:"pause"},
+      {t:"18:00–21:00", d:"Taxi (~5–10 phút) ra <b>Gwangalli</b> — dạo biển, ngắm cầu Gwangan lên đèn, ăn tối hải sản tươi/nướng ven biển."}
     ],
-    good:"Đã xác nhận: sáng nay không bắt buộc dự hội nghị, và tuyến xe khách thẳng Gyeongju→Haeundae là có thật — lịch nhẹ nhàng hơn nhiều so với phương án cũ. 🆕 24/9: điểm cần lưu ý là nhận phòng Busan từ 15:00 nên trưa nay là gửi hành lý, không phải nhận phòng."
+    outfit:[
+      ["Chị — sáng → hết phiên báo cáo (Set 3A)", "sơ mi lụa hồng đất nơ cổ + blazer be + jean ống rộng + sneaker trắng + tất bèo trắng + beret — đủ lịch sự để ngồi nghe ở hội trường."],
+      ["Chị — tối Gwangalli (Set 3B)", "đầm len đen + <b>măng tô hồng mặc hẳn</b> + Mary Jane + tất lửng đen (hoặc quần tất lưới) + beret."],
+      ["Anh", "chiều — vest navy/xám than + sơ mi trắng. Tối — bỏ cà vạt, mở cổ sơ mi, khoác áo dạ."]
+    ],
+    good:"Mốc cứng hôm nay: tải file ở Preview Room trước 14:00 và ngồi trong Room 12 lúc 14:15. Sau 15:45 rảnh hoàn toàn."
   },
   {
     date:"22/10", dow:"Thứ 5", mon:"Th10", num:"22",
     color: COLORS.conf,
-    title:"Bờ Đông hoang sơ + báo cáo poster + Tour 1 (giữ lại)",
-    flags:["🏛️ Hội nghị bắt buộc","🎟️ Tour 1 — đã xác nhận giữ"],
+    title:"Spa sáng · Poster · Tour 1: chùa vách đá & nhà thờ ven biển",
+    flags:["🏛️ Poster 13:20 — bắt buộc","🎟️ Tour 1"],
     items:[
-      {t:"Sáng", d:"Hai vợ chồng cùng thư giãn tại <b>Spa Land Centum City</b> (vé vào trước 9:00 ngày thường ~12.000 KRW, rẻ hơn giá thường 17.000 KRW; ~20.000 KRW/người giá thường) — tắm khoáng, xông các phòng chủ đề, nghỉ ngơi hồi phục sau chuỗi ngày đi bộ ở Gyeongju. Spa Land nằm ngay trong khu Shinsegae Centum City, chỉ vài phút đi bộ từ khách sạn.", alt:"Ăn sáng nhẹ trước khi đi tại GS25/emart24 ngay dưới sảnh khách sạn (Business Hotel thường không kèm bữa sáng)."},
-      {t:"Trưa", d:"Ăn nhẹ tại khu ẩm thực Shinsegae Centum City hoặc BEXCO. 🆕 Tranh thủ <b>về khách sạn thay đồ chỉnh tề</b> cho buổi báo cáo poster (đi bộ ~5 phút), rồi ra BEXCO khoảng 13:00 để có thời gian ổn định trước 13:20."},
-      {t:"13:20–13:50", d:"<b>Báo cáo poster tại BEXCO.</b> Chị đợi gần đó.", cls:"mandatory"},
-      {t:"14:00–18:00", d:"<b>Tour 1 (đã xác nhận giữ)</b> — Haedong Yonggungsa Temple &amp; Jukseong Church, khởi hành từ BEXCO ngay sau giờ báo cáo poster."},
-      {t:"Tối", d:"Cua tuyết hấp tại chợ cua Gijang, nghỉ sớm — mai còn phiên sáng bắt buộc.", alt:"🆕 Cần cân nhắc lại: tour kết thúc 18:00 tại BEXCO sau khi vừa đi Gijang về, nên quay lại Gijang ăn cua là thêm một chuyến taxi ~30 phút mỗi chiều. Nếu muốn ăn cua Gijang thì hỏi hướng dẫn viên xem xe tour có dừng gần chợ cua cuối buổi không; nếu không, ăn tối gần khách sạn (Centum City) cho nhẹ nhàng — ưu tiên nghỉ sớm để mai 08:00 có mặt BEXCO."}
+      {t:"Sáng", d:"Hai vợ chồng cùng đi <b>Spa Land Centum City</b> (vào trước 9:00 ngày thường ~12.000 KRW, giá thường ~20.000 KRW/người) — tắm khoáng, xông phòng chủ đề, hồi phục sau Gyeongju.", alt:"Ăn sáng nhẹ trước tại GS25/emart24 dưới sảnh."},
+      {t:"Trưa", d:"Ăn nhẹ ở Shinsegae Centum City. <b>Về phòng thay đồ</b> — anh đồ poster, chị đồ đi tour — rồi ra BEXCO ~13:00."},
+      {t:"13:20–13:50", d:"<b>Poster tại BEXCO</b> — giờ dán poster suất Poster Exhibition 1 (khu poster ở Exhibition Hall; băng dính có sẵn). Trưng bày 14:00–17:00.", cls:"mandatory", confirmed:"✅ Gỡ poster 17:00–17:30 trùng lúc đi tour → đồng nghiệp gỡ hộ (nhớ báo số bảng)."},
+      {t:"13:45", d:"<b>Có mặt điểm tập trung tour</b> — chị tới trước, anh qua ngay sau khi xong poster."},
+      {t:"14:00–18:00", d:"<b>Tour 1</b> — Haedong Yonggungsa Temple & Jukseong Church, khởi hành/kết thúc tại BEXCO. Cầu đá Yongmunkyo dẫn vào chùa; nhà thờ nhỏ trên ghềnh đá Gijang.", crowd:"🎤 Thỉnh thoảng kiểm tra email/app APHRS — kết quả sơ khảo có thể được báo trong ngày."},
+      {t:"Tối", d:"<b>Ăn tối gần khách sạn (Centum City), nghỉ sớm</b> — mai 08:00 có mặt BEXCO. 🎤 Nếu vào chung kết: tập bản 10 slide 30–45 phút.", alt:"Muốn ăn cua tuyết Gijang: hỏi hướng dẫn viên xem xe tour có dừng gần chợ cua cuối buổi không."},
+      {t:"Trước khi ngủ", d:"🎤 <b>Chốt Phương án A hay B cho 23/10.</b> Chưa có kết quả → sáng mai mặc định theo Phương án B tới khi có xác nhận."}
     ],
-    good:"🆕 18/9: đổi sáng nay từ Haeundae Blueline Park sang Spa Land Centum City (sát khách sạn) — phần \"đắt giá\" của Blueline Park (Sky Capsule) đã dời sang chiều 24/10 để ngắm hoàng hôn. APHRS chỉ cho giữ 1 trong 3 tour đã đăng ký — đã chọn giữ Tour 1 vì khu Gijang xa/khó tự đi nhất và trải nghiệm đặc sắc nhất, lại khớp lịch hoàn hảo ngay sau giờ báo cáo poster tại cùng địa điểm BEXCO."
+    outfit:[
+      ["Chị (Set 4B-1)", "giữ nhiệt nude + len cổ lọ be + jean ống rộng + gile lông kem + măng tô hồng + sneaker trắng + tất cotton + beret + khăn. Không dùng bản đầm + Mary Jane (bậc đá trơn, gió mạnh)."],
+      ["Anh (vừa poster vừa tour)", "blazer navy + sơ mi xanh nhạt + quần kaki xám + <b>giày da đế cao su bám tốt</b> + khăn quàng + áo dạ. Tuỳ chọn cà vạt hồng đất nhạt hợp màu măng tô của chị."]
+    ]
   },
   {
     date:"23/10", dow:"Thứ 6", mon:"Th10", num:"23",
     color: COLORS.conf,
-    title:"Làng nghệ thuật & chợ hải sản (tự đi) + phiên sáng",
-    flags:["🏛️ Hội nghị bắt buộc","🚶 Tự đi (Tour 2 đã huỷ)"],
+    title:"Phiên sáng + (có thể) chung kết · Gamcheon & Jagalchi",
+    flags:["🏛️ 08:00 — bắt buộc","🏆 Chung kết nếu top 6","🚶 Tự đi"],
     items:[
-      {t:"~07:30", d:"🆕 Ăn sáng đơn giản tại GS25/emart24 dưới sảnh (hoặc mua từ tối hôm trước). Rời khách sạn <b>không muộn hơn 07:30</b> — thang máy chậm giờ cao điểm + đi bộ ~10 phút tới BEXCO."},
-      {t:"08:00–08:20", d:"<b>Có mặt tại BEXCO.</b>", cls:"mandatory"},
-      {t:"08:20–13:30", d:"Chị tự do: con đường sách cổ <b>Bosudong</b> (khu Jung-gu). Trưa ăn vặt chợ Bupyeong Kkangtong.", crowd:"Ở khu Jung-gu buổi sáng giúp chặng chuyển sang Gamcheon buổi chiều chỉ mất ~10–15 phút, thay vì 35–45 phút nếu xuất phát từ Haeundae/Centum."},
-      {t:"14:00–18:00", d:"<b>Gamcheon Culture Village &amp; Jagalchi Market — tự đi.</b> Taxi Kakao T (~10–15 phút, ~8.000–10.000 KRW) hoặc metro tuyến 1 tới ga Toseong rồi taxi/bus ngắn lên làng."},
-      {t:"Tối", d:"Tối tại <b>Wonjo Busan Jokbal (원조부산족발)</b>, 13-1 Gwangbok-ro — cách Jagalchi ~400m (đi bộ 5 phút). Món gợi ý: Naengchae Jokbal (냉채족발, giò heo thái mỏng trộn sứa biển, ~35.000–40.000 KRW/2 người).", alt:"Quán có thật, khá nổi tiếng (đã xác minh). Dự phòng: sashimi mực sống hoặc lẩu hải sản tại Jagalchi/Nampo-dong."},
-      {t:"Sau bữa tối", d:"🆕 Về khách sạn: từ khu Jagalchi/Nampo về Centum City mất khoảng <b>45–60 phút bằng metro</b> (tuyến 1 → đổi tuyến 2 tại Seomyeon → ga Centum City, lối ra 11 ngay cạnh khách sạn) hoặc taxi Kakao T ~35–45 phút. Nếu mệt sau một ngày dốc Gamcheon thì đi taxi cho khỏe."}
+      {h:"Phương án A — KHÔNG vào chung kết"},
+      {t:"~07:30", d:"Ăn sáng tại GS25/emart24 dưới sảnh, rời khách sạn <b>không muộn hơn 07:30</b>."},
+      {t:"08:00–08:20", d:"<b>Có mặt tại BEXCO</b> (trùng giờ dán poster suất Poster Exhibition 2; gỡ 11:30–12:00 → đồng nghiệp gỡ hộ).", cls:"mandatory"},
+      {t:"08:20–13:30", d:"Con đường sách cổ <b>Bosudong</b>; trưa ăn vặt chợ <b>Bupyeong Kkangtong</b> (Bibim Dangmyeon, chả cá Eomuk)."},
+      {t:"14:00–18:00", d:"<b>Gamcheon Culture Village & Jagalchi Market — tự đi.</b> Từ Bupyeong taxi ~7–15 phút lên Gamcheon."},
+      {h:"Phương án B — VÀO chung kết (11:20, Room 13)"},
+      {t:"07:30", d:"Rời khách sạn, anh mặc sẵn đồ báo cáo."},
+      {t:"08:00–08:20", d:"<b>Có mặt tại BEXCO</b>.", cls:"mandatory"},
+      {t:"08:20–08:45", d:"🎤 <b>Preview Room 2 — Exhibition Hall tầng 1</b>: tải file chung kết và chạy thử luôn (hạn chót 10:50).", cls:"mandatory"},
+      {t:"08:45–10:30", d:"Về khu Centum ăn sáng cùng chị; anh về phòng tập bản 10 slide 1–2 lượt (bấm giờ 9 phút). Chị nghỉ hoặc dạo ven sông Suyeong / APEC Naru Park."},
+      {t:"10:45", d:"Quay lại BEXCO, tìm <b>Exhibition Hall 1F, Room 13</b> (khác toà với Room 12)."},
+      {t:"11:00", d:"<b>Hai vợ chồng ngồi sẵn trong Room 13.</b>", cls:"mandatory"},
+      {t:"11:20–12:35", d:"🏆 <b>Chung kết Best of the Best</b> — 9 phút + 2 phút Q&A. Thứ tự chưa rõ; ngồi tới hết phiên.", cls:"mandatory"},
+      {t:"12:40–13:30", d:"Về phòng thay len + sneaker, ăn trưa nhanh gần Centum City."},
+      {t:"13:30–14:15", d:"Taxi đi thẳng <b>Gamcheon Culture Village</b> (~35–45 phút, ~20.000–25.000 KRW ước tính)."},
+      {t:"14:15–16:00", d:"Dạo <b>Gamcheon</b> theo nhịp chậm."},
+      {t:"16:15–17:45", d:"Taxi ngắn xuống <b>Jagalchi Market</b>.", alt:"Bỏ Bosudong & Bupyeong ở phương án này; còn sức thì ghé Bupyeong ngắn sau bữa tối."},
+      {h:"Tối — chung cho cả hai phương án"},
+      {t:"~18:00", d:"Tối tại <b>Wonjo Busan Jokbal (원조부산족발)</b>, 13-1 Gwangbok-ro — cách Jagalchi ~400m. Món gợi ý: Naengchae Jokbal (~35.000–40.000 KRW/2 người).", alt:"Dự phòng: sashimi mực sống hoặc lẩu hải sản tại Jagalchi/Nampo-dong."},
+      {t:"Sau bữa tối", d:"Về khách sạn: taxi Kakao T ~35–45 phút (nên đi taxi sau một ngày dài), hoặc metro 45–60 phút (tuyến 1 → đổi tuyến 2 tại Seomyeon → ga Centum City)."}
     ],
-    alt:"🚶 Tour 2 đã bị huỷ theo quy định mới của APHRS (chỉ giữ 1 tour). Gamcheon &amp; Jagalchi nằm trong nội thành nên tự đi rất dễ, không cần theo đoàn — có thể đi theo nhịp riêng."
+    outfit:[
+      ["Chị (cả hai phương án)", "<b>jean ống rộng</b> + sơ mi lụa hồng đất (hoặc len tăm đen) + blazer be + sneaker + beret + túi da; để sẵn gile lông/khăn trong túi cho chiều muộn."],
+      ["Anh — Phương án A", "sơ mi oxford + len navy + quần kaki + blazer cho phiên 8:00 (sau đó gấp bỏ túi) + sneaker."],
+      ["Anh — Phương án B", "sáng vest (mặc lại như 21/10) hoặc blazer navy + sơ mi trắng + giày da; 12:40 thay len navy + kaki/jean + sneaker cho Gamcheon."]
+    ]
   },
   {
     date:"24/10", dow:"Thứ 7", mon:"Th10", num:"24",
     color: COLORS.travel,
-    title:"Ngày riêng của hai vợ chồng: Dongbaekseom, Sky Capsule & drone show Gwangalli",
-    flags:["✅ Sky Capsule đã đặt vé","💑 Ngày riêng hai vợ chồng"],
+    title:"Ngày riêng hai vợ chồng: Dongbaekseom, Sky Capsule & drone show",
+    flags:["✅ Sky Capsule đã đặt vé","💑 Ngày riêng"],
     items:[
-      {t:"Sáng", d:"Dạo <b>đảo Dongbaekseom</b> (miễn phí, đi bộ vòng đảo ~45 phút–1 tiếng), ghé <b>Nurimaru APEC House</b> ở mũi đảo (view biển 360°, miễn phí vào cửa). Ăn sáng/brunch khu <b>Marine City</b>, có thể ghé <b>The Bay 101</b> (view bến du thuyền, đẹp để chụp ảnh). Từ khách sạn tới Dongbaekseom/Marine City chỉ cần taxi ngắn (~10 phút) hoặc metro tuyến 2.", alt:"Đã bỏ BUSAN X the SKY — vé ~27.000 KRW/người chỉ cần 1–1,5 tiếng tham quan, không đáng dành cả buổi sáng."},
-      {t:"~12:30–15:00", d:"<b>Hard Pause</b> thật sự — về khách sạn nghỉ ngơi/chợp mắt (khách sạn gần nên không mất công), tranh thủ đóng gói bớt hành lý (vì tối nay về muộn, mai lại phải dậy sớm).", cls:"pause"},
-      {t:"~15:15–15:35", d:"Taxi từ khách sạn ra ga <b>Mipo</b> (~15–20 phút từ Centum City)."},
-      {t:"16:30–17:00", d:"<b>Sky Capsule (Haeundae Blueline Park)</b> Mipo → Cheongsapo, ngắm biển từ trên cao lúc hoàng hôn.", confirmed:"✅ Đã đặt vé — mã đặt chỗ RS26017333372 (mã vé 26018070007-1), khoang 2 người một chiều, 50.000 KRW, suất 17 (16:30–17:00 vào cửa), trạng thái \"Reservation Complete (Valid Ticket)\". Vé QR gửi qua KakaoTalk tới số điện thoại đã đăng ký — nên chụp lại màn hình xác nhận làm bản lưu dự phòng, và có mặt tại ga Mipo trước giờ khởi hành ít phút để làm thủ tục lên khoang."},
-      {t:"17:00–17:45", d:"Dạo <b>Cheongsapo Daritdol Skywalk</b>, đón hoàng hôn (~17:35–17:40 cuối tháng 10)."},
-      {t:"17:45–18:20", d:"Taxi Cheongsapo → <b>Gwangalli</b> (~25–35 phút)."},
-      {t:"18:20–19:00", d:"Ra bãi biển Gwangalli tìm chỗ đứng đẹp — xem miễn phí, không cần vé, nhưng thứ 7 đông nên tới sớm ~40 phút."},
-      {t:"19:00–19:12", d:"Xem <b>Gwangalli M Drone Light Show</b> — suất 1.", crowd:"Đã xác nhận 24/10/2026 là thứ Bảy, đúng lịch diễn hàng tuần (mùa đông 10–2: 19:00 & 21:00, mỗi suất ~10–12 phút, miễn phí). Chỉ xem suất 19:00, không nán lại suất 21:00 vì mai phải dậy 05:00 ra sân bay."},
-      {t:"19:15–20:45", d:"Ăn tối hải sản ngay khu Gwangalli (nhà hàng view cầu Gwangan)."},
-      {t:"~21:00", d:"Taxi về Centum Business Hotel (~5–10 phút từ Gwangalli), nghỉ sớm."},
-      {t:"Trước khi ngủ", d:"🆕 <b>Chuẩn bị trả phòng sớm ngay tối nay:</b> đóng gói xong hành lý; hỏi lễ tân làm thủ tục trả phòng sớm (nếu được) hoặc xác nhận cách trả thẻ phòng lúc 05:00 (lễ tân hoạt động 24/7); và <b>hẹn taxi Kakao T lúc ~05:00</b> từ tối để chắc có xe."}
+      {t:"~09:00–11:30", d:"Dạo <b>đảo Dongbaekseom</b> (miễn phí, ~45 phút–1 tiếng), ghé <b>Nurimaru APEC House</b> (view biển 360°, miễn phí). Brunch khu <b>Marine City</b>, có thể ghé <b>The Bay 101</b>. Taxi ~10 phút hoặc metro tuyến 2."},
+      {t:"12:30–14:45", d:"<b>Hard Pause</b> tại khách sạn — nghỉ, chợp mắt, đóng gói bớt hành lý.", cls:"pause"},
+      {t:"14:45–15:15", d:"<b>Thay set chiều-tối.</b>"},
+      {t:"15:15", d:"Taxi ra ga <b>Mipo</b> (~15–20 phút)."},
+      {t:"16:30–17:00", d:"<b>Sky Capsule (Haeundae Blueline Park)</b> Mipo → Cheongsapo, ngắm hoàng hôn.", confirmed:"✅ Đã đặt — RS26017333372 (mã vé 26018070007-1), khoang 2 người, 50.000 KRW, suất 17. Vé QR gửi qua KakaoTalk — chụp lại màn hình xác nhận, có mặt ở ga Mipo trước giờ ít phút."},
+      {t:"Sau đó", d:"<b>Cheongsapo Daritdol Skywalk</b>, gần ga Cheongsapo."},
+      {t:"19:00", d:"<b>Gwangalli M Drone Light Show</b> — chỉ xem suất 19:00 (mai 05:00 ra sân bay). Thứ 7 đông, nên tới sớm."},
+      {t:"Tối", d:"Ăn tối hải sản gần Gwangalli, taxi về khách sạn (~5–10 phút)."},
+      {t:"Trước khi ngủ", d:"<b>Chuẩn bị trả phòng sớm:</b> đóng gói xong; hỏi lễ tân cách trả phòng lúc 05:00; <b>hẹn taxi Kakao T ~05:00</b> từ tối."}
     ],
-    good:"✅ 22/9: đã đặt và thanh toán thành công vé Sky Capsule khung 16:30 (mã RS26017333372) ngay sáng mở bán. 🆕 18/9: đổi hẳn khỏi kế hoạch tự đi UN Memorial Cemetery/Oryukdo Skywalk (Tour 3 đã huỷ theo quy định mới của APHRS) — thay bằng một ngày nhẹ nhàng, gần, và lãng mạn hơn dành riêng cho hai vợ chồng."
+    outfit:[
+      ["Chị — sáng (Set 6A)", "sơ mi lụa hồng đất + blazer be + tất cao cổ len tăm + sneaker trắng + beret + túi da. (Cần chốt đồ dưới — jean hoặc chân váy denim; hoặc bản 2: váy len xám + blazer + Mary Jane + tất be.)"],
+      ["Chị — chiều-tối (Set 6B)", "giữ nhiệt nude + len tăm đen + chân váy satin vàng kim sa + gile lông kem + <b>măng tô hồng mặc hẳn khi xem drone show</b> + Mary Jane + tất lửng đen + beret + Kairo."],
+      ["Anh", "sáng — len kem hoặc sơ mi kẻ + jean sáng màu + sneaker. Chiều-tối — len cổ lọ đen + quần âu xám than + áo dạ camel + khăn quàng."]
+    ]
   },
   {
     date:"25/10", dow:"Chủ nhật", mon:"Th10", num:"25",
@@ -886,27 +994,34 @@ const days = [
     title:"Về nước",
     flags:["✈️ Bay về"],
     items:[
-      {t:"~05:00–05:15", d:"Check-out (lễ tân 24/7), rời khách sạn bằng taxi Kakao T đã hẹn từ tối hôm trước. Khách sạn không có xe đưa đón sân bay."},
-      {t:"~05:30–05:45", d:"Tới sân bay Gimhae (taxi ~30–40 phút giờ vắng, ~25.000–30.000 KRW; khách sạn cách sân bay ~21–25 km)."},
-      {t:"06:00–07:30", d:"Check-in, gửi hành lý, hoàn thuế (Tax Refund kiosk), qua an ninh."},
-      {t:"08:10", d:"Khởi hành VJ981 → Hà Nội."},
-      {t:"11:00", d:"Hạ cánh Hà Nội."}
+      {t:"~05:00–05:15", d:"Check-out (lễ tân 24/7), taxi Kakao T đã hẹn từ tối hôm trước. Khách sạn không có xe đưa đón sân bay."},
+      {t:"~05:30–05:45", d:"Tới sân bay Gimhae (~30–40 phút giờ vắng, ~25.000–30.000 KRW)."},
+      {t:"06:00–07:30", d:"Check-in, gửi hành lý, hoàn thuế (kiosk Tax Refund), qua an ninh."},
+      {t:"08:10", d:"Khởi hành VJ981 → Hà Nội, hạ cánh 11:00."}
     ],
-    note:"Giờ ra sân bay là mức trung hòa giữa hai bản (05:10 vs 06:00) — ưu tiên an toàn vì còn phải hoàn thuế và làm thủ tục quốc tế."
+    outfit:[
+      ["Chị (Set 7)", "giữ nhiệt nude + len cổ lọ be + jean + măng tô hồng (mặc lên máy bay) + sneaker + tất len + khăn."],
+      ["Anh", "len + jean + áo dạ (mặc lên máy bay) + sneaker."]
+    ]
   }
 ];
 
 const todos = [
-  "✅ Chọn & đặt khách sạn Busan — đã đặt Centum Business Hotel (24/9/2026)",
-  "Nhắn khách sạn Centum Business trước 21/10: xin nhận phòng sớm, xác nhận được gửi hành lý từ ~11:30, hỏi bữa sáng có/không, xin phòng tầng cao ít nhìn thẳng sang toà nhà khác",
-  "Bổ sung vào file: mã đặt phòng, loại phòng, giá của Centum Business Hotel và xác nhận lại đúng 4 đêm 21–25/10",
-  "Cân nhắc lại bữa tối 22/10 (cua tuyết Gijang) — tour về BEXCO 18:00; ăn gần khách sạn hay hỏi hướng dẫn viên có dừng chợ cua",
-  "Tối 24/10: hẹn taxi Kakao T lúc ~05:00 ngày 25/10 và hỏi lễ tân thủ tục trả phòng sớm",
-  "Quyết định có ghé thêm Seokguram Grotto ngày 20/10 hay bỏ qua",
-  "Xác nhận lại giờ chạy chính xác xe khách Gyeongju → Haeundae gần ngày đi",
-  "Xem lịch chi tiết hội nghị 21–24/10 để chọn thêm phiên muốn dự",
-  "Kiểm tra lại trên Naver Map/Kakao Map quán trà khu Poseok-ro chiều 20/10 (chưa xác minh được tên cụ thể nào)",
-  "Mang theo adapter chuyển chân cắm (Hàn Quốc dùng chân tròn C/F, khác chân dẹt A phổ biến ở Việt Nam)"
+  "✅ Đặt khách sạn Busan — Centum Business Hotel (24/9/2026)",
+  "✅ Giờ phiên bắt buộc chiều 21/10 — Best of the Best CIED, 14:30–15:45, Room 12 (17/10/2026)",
+  "✅ Thủ tục báo cáo — USB tại Preview Room ≥30 phút trước phiên, ngồi trong phòng ≥15 phút trước lượt (17/10/2026)",
+  "✅ Slide sơ khảo + chung kết đã xong (17/10/2026)",
+  "✅ Bữa tối 22/10 — ăn gần Centum City, nghỉ sớm",
+  "Soát slide: có slide COI, khổ 16:9, tên file tiếng Anh, video nhúng sẵn, chạy thử trên máy Windows khác (COI có thể ghi trên slide tiêu đề nếu bị tính vào giới hạn slide)",
+  "Gửi đồng nghiệp suất poster + số bảng (xem My Page) để gỡ hộ: 22/10 17:00–17:30; 23/10 11:30–12:00",
+  "Nhắn khách sạn Centum Business trước 21/10: xin nhận phòng sớm, gửi hành lý từ ~12:00, hỏi bữa sáng, xin phòng tầng cao",
+  "Bổ sung mã đặt phòng, loại phòng, giá Centum Business Hotel; xác nhận đúng 4 đêm 21–25/10",
+  "Chị chốt đồ dưới cho Set 6A (sáng 24/10); anh gửi danh sách đồ đang có để chỉnh phần phối đồ",
+  "Tối 24/10: hẹn taxi Kakao T ~05:00 ngày 25/10 và hỏi lễ tân thủ tục trả phòng sớm",
+  "Quyết định có ghé Seokguram Grotto ngày 20/10 hay không",
+  "Xác nhận giờ chạy xe khách Gyeongju → Haeundae gần ngày đi (Kakao Map/Bustago hoặc hỏi tại quầy)",
+  "Kiểm tra lại trên Naver Map các quán ăn (Dosolmaeul, quán Hanwoo tối 19/10)",
+  "Mang adapter chuyển chân cắm (chân tròn C/F)"
 ];
 
 function render(){
@@ -922,14 +1037,14 @@ function render(){
           <div class="dname">${day.dow} · ${day.date}</div>
           <h3>${day.title}</h3>
           <div class="day-flags">
-            ${day.flags.map(f=>`<span class="flag ${f.includes('bắt buộc')?'conf':(f.includes('Tour')?'tour':(f.includes('Tự đi')||f.includes('KHÔNG')||f.includes('đã đặt')?'free':'travel'))}">${f}</span>`).join('')}
+            ${day.flags.map(f=>`<span class="flag ${f.includes('bắt buộc')?'conf':(f.includes('Tour')?'tour':(f.includes('Tự đi')||f.includes('đã đặt')?'free':'travel'))}">${f}</span>`).join('')}
           </div>
         </div>
         <div class="chev">▾</div>
       </div>
       <div class="day-body" id="body-${idx}">
         <div class="day-body-inner">
-          ${day.items.map(it => `
+          ${day.items.map(it => it.h ? `<div class="plan-head">${it.h}</div>` : `
             <div class="item ${it.cls || ''}">
               <div class="time">${it.t}</div>
               <div class="desc">${it.d}</div>
@@ -939,10 +1054,11 @@ function render(){
             </div>
           `).join('')}
         </div>
+        ${day.outfit ? `<div class="outfit-block"><span class="ot">👗 Trang phục</span>${day.outfit.map(o => `<div class="ow"><b>${o[0]}:</b> ${o[1]}</div>`).join('')}</div>` : ''}
         ${day.good ? `<div class="good-inline" style="margin-left:84px;margin-right:18px;">✅ ${day.good}</div>` : ''}
         ${day.note ? `<div class="note-inline" style="margin-left:84px;margin-right:18px;">💡 ${day.note}</div>` : ''}
         ${day.warn ? `<div class="warn-inline" style="margin-left:84px;margin-right:18px;">⚠️ ${day.warn}</div>` : ''}
-        ${day.alt ? `<div class="warn-inline" style="margin-left:84px;margin-right:18px;">${day.alt}</div>` : ''}
+        <div class="day-bottom"></div>
       </div>
     </div>
   `).join('');
@@ -975,25 +1091,35 @@ function toggleDay(idx){
   }
 }
 
+// Mở lại chiều cao các ngày đang mở khi đổi cỡ chữ / xoay màn hình
+function refreshOpenDays(){
+  document.querySelectorAll('.day.open .day-body').forEach(b => {
+    b.style.maxHeight = b.scrollHeight + 'px';
+  });
+}
+window.addEventListener('resize', refreshOpenDays);
+
+// Khoá lưu trạng thái tick đổi sang v2 vì danh sách việc đã thay đổi
+const TODO_KEY = 'gj-todo-done-v2';
+
 function toggleTodo(cb){
   cb.nextElementSibling.classList.toggle('done', cb.checked);
   try{
-    const done = JSON.parse(localStorage.getItem('gj-todo-done') || '{}');
+    const done = JSON.parse(localStorage.getItem(TODO_KEY) || '{}');
     done[cb.dataset.todoIdx] = cb.checked;
-    localStorage.setItem('gj-todo-done', JSON.stringify(done));
+    localStorage.setItem(TODO_KEY, JSON.stringify(done));
   }catch(e){ /* ignore */ }
 }
 
 function restoreTodoChecks(){
   let done = {};
-  try{ done = JSON.parse(localStorage.getItem('gj-todo-done') || '{}'); }catch(e){ /* ignore */ }
+  try{ done = JSON.parse(localStorage.getItem(TODO_KEY) || '{}'); }catch(e){ /* ignore */ }
   document.querySelectorAll('#todo input[data-todo-idx]').forEach(cb => {
     if(done[cb.dataset.todoIdx]){
       cb.checked = true;
       cb.nextElementSibling.classList.add('done');
     }
   });
-  // Mục đã hoàn thành sẵn (bắt đầu bằng ✅) luôn hiển thị là đã xong
   document.querySelectorAll('#todo input[data-todo-idx]').forEach(cb => {
     if(cb.nextElementSibling.textContent.trim().startsWith('✅')){
       cb.checked = true;
@@ -1034,10 +1160,10 @@ function applyFontSize(){
   const scale = FS_STEPS[fsIndex];
   if(zoomEl){
     zoomEl.style.zoom = scale;
-    // Bù lại chiều rộng để nội dung không bị tràn ngang khi phóng to chữ
     zoomEl.style.width = (100 / scale) + '%';
   }
   safeSet('gj-fontscale', String(fsIndex));
+  refreshOpenDays();
 }
 
 function changeFontSize(delta){
@@ -1134,7 +1260,6 @@ navGroupChevron.addEventListener('click', (e) => {
   e.preventDefault();
   toggleNavDaysGroup();
 });
-// Bấm vào một ngày cụ thể: mở ngày đó ra (nếu đang đóng) rồi để trình duyệt cuộn tới
 navDaysSubList.querySelectorAll('a[data-day-idx]').forEach(a => {
   a.addEventListener('click', () => {
     const idx = parseInt(a.dataset.dayIdx, 10);
